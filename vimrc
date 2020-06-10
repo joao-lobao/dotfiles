@@ -68,6 +68,17 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 " plugin for git integration with NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+" A client for TSServer
+Plugin 'Quramy/tsuquyomi'
+" plugin wrapper for prettier (lint/format)
+Plugin 'prettier/vim-prettier'
+" plugin for linting
+Plugin 'dense-analysis/ale'
+" plugin to show hex colors
+Plugin 'ap/vim-css-color'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,14 +96,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" to enable typescript-vim plugin to display compilation errors in the QuickFix window
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 " to enable CtrlP search also by path and not only by file name
 let g:ctrlp_by_filename = 0
-" -------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
+
+"-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
 colorscheme molokai
 " escape insert mode
 inoremap jj <Esc>
@@ -200,7 +209,14 @@ call matchadd('OverLength', '\%<80v.\%>79v')" to highlight char as red in 79 col
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
-" ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
+
+" macro to create portal environment itemModel in BB project
+let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
+
+" autoclose preview window after autocomplete insertion
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+"" ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
 
 " Vim Matrix
 if argc() == 0
