@@ -42,6 +42,8 @@ Plugin 'tpope/vim-commentary'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+" Shows git uncommited changes in lines
+Plugin 'airblade/vim-gitgutter'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -102,7 +104,9 @@ autocmd QuickFixCmdPost    l* nested lwindow
 let g:ctrlp_by_filename = 0
 
 "-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
+
 colorscheme molokai
+
 " escape insert mode
 inoremap jj <Esc>
 
@@ -116,11 +120,40 @@ nnoremap y "+y
 " indent
 nnoremap == gg=G''
 let mapleader = "\<Space>"
+
+" git gutter symbols
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 " default open file from NerdTree in current or new tab
 let g:NERDTreeMapOpen='<ENTER>'
 let g:NERDTreeMapOpenSplit='<C-h>' "NERDTree
 let g:NERDTreeMapOpenVSplit='<C-v>' "NERDTree
 let g:NERDTreeMapOpenInTab='o'
+" nerd tree git symbols
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" Fix files with prettier, and then ESLint.
+let b:ale_fixers = ['prettier', 'eslint']
+" Equivalent to the above.
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
+" key to open and close autopairs help in order to close the autopairs error
+" NEEDS TO BE RESOLVED
+nnoremap <leader>ha :help autopairs<CR>:q<CR>
 
 " open NerdTree
 nnoremap <leader>nn :NERDTreeToggle<CR>
