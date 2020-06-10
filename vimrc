@@ -105,15 +105,7 @@ let g:ctrlp_by_filename = 0
 colorscheme molokai
 " escape insert mode
 inoremap jj <Esc>
-" no arrows
-nnoremap <Left> :echo "No left for you!"<CR>
-vnoremap <Left> :<C-u>echo "No left for you!"<CR>
-nnoremap <Right> :echo "No right for you!"<CR>
-vnoremap <Right> :<C-u>echo "No right for you!"<CR>
-nnoremap <Up> :echo "No up for you!"<CR>
-vnoremap <Up> :<C-u>echo "No up for you!"<CR>
-nnoremap <Down> :echo "No down for you!"<CR>
-vnoremap <Down> :<C-u>echo "No down for you!"<CR>
+
 " Switching windows
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -131,57 +123,54 @@ let g:NERDTreeMapOpenVSplit='<C-v>' "NERDTree
 let g:NERDTreeMapOpenInTab='o'
 
 " open NerdTree
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>pnr :NERDTreeRefreshRoot<CR>
+nnoremap <leader>nn :NERDTreeToggle<CR>
+nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
 " YouCompleteMe features
-nnoremap <leader>pyf :YcmCompleter FixIt<CR>
-nnoremap <leader>py= :YcmCompleter Format<CR>
-nnoremap <leader>pyi :YcmCompleter OrganizeImports<CR>
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>y= :YcmCompleter Format<CR>
+nnoremap <leader>yi :YcmCompleter OrganizeImports<CR>
 " TslintFix feature
-nnoremap <leader>ptf :TslintFix<CR>
+nnoremap <leader>ytf :TslintFix<CR>
 
 
 
 " ------WINDOW------
 " resize screen height/width
-nnoremap <leader>+ <C-w>+
-nnoremap <leader>- <C-w>-
-nnoremap <leader>> <C-w>><C-w>><C-w>><C-w>><C-w>>
-nnoremap <leader>< <C-w><<C-w><
+nnoremap <Up> <C-w>+
+nnoremap <Down> <C-w>-
+nnoremap <Right> <C-w>>
+nnoremap <Left> <C-w><
 " rotate window in each ways
 nnoremap <leader>r <C-w>r
 nnoremap <leader>R <C-w>R
 " spliting with new files
-nnoremap <leader>sh :new<CR>
+nnoremap <leader>s :new<CR>
 nnoremap <leader>sv :vnew<CR>
 
 
 " ------TABS------
 " tab naviagation, open and closing
+nnoremap <leader>to :tabnew<CR>
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tc :tabc<CR>
-nnoremap <leader>tnew :tabnew<CR>
 " tab find {arg} - opens a new tab for the {arg} file
 nnoremap <leader>tf :tabf<CR>
 " list tabs
-nnoremap <leader>tls :tabs<CR>
+nnoremap <leader>ts :tabs<CR>
 
 
 " ------BUFFERS------
-" buffer naviagation and deleting
+" buffer naviagation, open and deleting
+nnoremap <leader>bo :enew<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
 " list buffers
-nnoremap <leader>bls :ls<CR>
+nnoremap <leader>bs :ls<CR>
 
 
 
-
-" key to open and close autopairs help in order to close the autopairs error
-" NEEDS TO BE RESOLVED
-nnoremap <leader>ha :help autopairs<CR>:q<CR>
 set encoding=utf-8
 set incsearch
 set hlsearch
