@@ -1,8 +1,26 @@
+" the molokai theme if is set it is installed by being in the directory:
+" ~/.vim/colors/molokai.vim
+
+" the ctrlpvim is installed via the following steps:
+" Clone the plugin into a separate directory:
+" cd ~/.vim
+" git clone https://github.com/ctrlpvim/ctrlp.vim.git bundle/ctrlp.vim
+" Add to your ~/.vimrc:
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Run at Vim's command line:
+":helptags ~/.vim/bundle/ctrlp.vim/doc
+" Restart Vim and check :help ctrlp.txt for usage instructions and configuration details.
+
+" the rest of the plugins are installed via PluginInstall conmmad
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+" set the runtime path to include CtrlP and initialize
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -37,23 +55,25 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " auto complete
 Plugin 'ycm-core/YouCompleteMe'
-" plugin to enable template strings syntax support
-" Plugin 'Quramy/vim-js-pretty-template'
-" plugin to enable javascript syntax highlighting
-" Plugin 'pangloss/vim-javascript'
-" TSUQUYOMI to bring IDE like features to VIM
-" Plugin 'Shougo/vimproc.vim'
-" TSUQUYOMI to bring IDE like features to VIM
-" Plugin 'Quramy/tsuquyomi'
-" Syntax checking
-" Plugin 'vim-syntastic/syntastic'
+
 " plugin to enable typescript syntax support
-" Plugin 'leafgarland/typescript-vim'
+Plugin 'leafgarland/typescript-vim'
+" plugin for tslinting
+Plugin 'heavenshell/vim-tslint'
+" plugin to go to matching tag/parentisis/block...
+Plugin 'adelarsq/vim-matchit'
+" plugin to insert or delete brackets, parens, quotes in pair
+Plugin 'jiangmiao/auto-pairs'
+" plugin for NerdTree
+Plugin 'preservim/nerdtree'
+" plugin for git integration with NerdTree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
+
 "filetype plugin on
 "
 " Brief help
@@ -65,14 +85,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
 " to enable typescript-vim plugin to display compilation errors in the QuickFix window
-" let g:typescript_compiler_binary = 'tsc'
-" let g:typescript_compiler_options = ''
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
-
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+" to enable CtrlP search also by path and not only by file name
+let g:ctrlp_by_filename = 0
 " -------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
+colorscheme molokai
 " escape insert mode
 inoremap jj <Esc>
 " no arrows
@@ -94,9 +115,66 @@ nnoremap y "+y
 " indent
 nnoremap == gg=G''
 let mapleader = "\<Space>"
-" nnoremap <leader>ti :TsuImport<CR>
+" default open file from NerdTree in current or new tab
+let g:NERDTreeMapOpen='<ENTER>'
+let g:NERDTreeMapOpenSplit='<C-h>' "NERDTree
+let g:NERDTreeMapOpenVSplit='<C-v>' "NERDTree
+let g:NERDTreeMapOpenInTab='o'
 
+" open NerdTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>pnr :NERDTreeRefreshRoot<CR>
+" YouCompleteMe features
+nnoremap <leader>pyf :YcmCompleter FixIt<CR>
+nnoremap <leader>py= :YcmCompleter Format<CR>
+nnoremap <leader>pyi :YcmCompleter OrganizeImports<CR>
+" TslintFix feature
+nnoremap <leader>ptf :TslintFix<CR>
+
+
+
+" ------WINDOW------
+" resize screen height/width
+nnoremap <leader>+ <C-w>+
+nnoremap <leader>- <C-w>-
+nnoremap <leader>> <C-w>><C-w>><C-w>><C-w>><C-w>>
+nnoremap <leader>< <C-w><<C-w><
+" rotate window in each ways
+nnoremap <leader>r <C-w>r
+nnoremap <leader>R <C-w>R
+" spliting with new files
+nnoremap <leader>sh :new<CR>
+nnoremap <leader>sv :vnew<CR>
+
+
+" ------TABS------
+" tab naviagation, open and closing
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
+nnoremap <leader>tc :tabc<CR>
+nnoremap <leader>tnew :tabnew<CR>
+" tab find {arg} - opens a new tab for the {arg} file
+nnoremap <leader>tf :tabf<CR>
+" list tabs
+nnoremap <leader>tls :tabs<CR>
+
+
+" ------BUFFERS------
+" buffer naviagation and deleting
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bd :bd<CR>
+" list buffers
+nnoremap <leader>bls :ls<CR>
+
+
+
+
+" key to open and close autopairs help in order to close the autopairs error
+" NEEDS TO BE RESOLVED
+nnoremap <leader>ha :help autopairs<CR>:q<CR>
 set encoding=utf-8
+set incsearch
 set hlsearch
 set ignorecase
 syntax on
@@ -114,19 +192,15 @@ set shiftwidth=2    " Indents will have a width of 2
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
-highlight ExtraWhitespace ctermbg=lightgrey guibg=lightgrey
+highlight ExtraWhitespace ctermbg=red guibg=red
 call matchadd('ExtraWhitespace', '\s\+$', 11)
-highlight OverLength ctermbg=magenta guibg=magenta
+highlight OverLength ctermbg=red guibg=red
 call matchadd('OverLength', '\%<80v.\%>79v')" to highlight char as red in 79 column
 
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 " ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
-
-" to enable template strings syntax support for vim-js-pretty-template plugin
-" autocmd FileType typescript JsPreTmpl
-" autocmd FileType typescript syn clear foldBraces
 
 " Vim Matrix
 if argc() == 0
@@ -139,12 +213,5 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!    g`\"" | endif
 augroup END
 
-" Syntax highlighting for vim-syntastic/syntastic plugin
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:tsuquyomi_disable_quickfix = 1
-" let g:syntastic_typescript_checkers = ['tsuquyomi']
-
+" auto lint on save
+autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
