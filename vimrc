@@ -1,6 +1,3 @@
-" the molokai theme if is set it is installed by being in the directory:
-" ~/.vim/colors/molokai.vim
-
 " the ctrlpvim is installed via the following steps:
 " Clone the plugin into a separate directory:
 " cd ~/.vim
@@ -27,11 +24,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" matrix plugin
-Plugin 'uguu-org/vim-matrix-screensaver'
 " plugins for status/tabline
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " plugin to set multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 " plugin surrounding feature
@@ -44,10 +38,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 " Shows git uncommited changes in lines
 Plugin 'airblade/vim-gitgutter'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -60,8 +50,6 @@ Plugin 'ycm-core/YouCompleteMe'
 
 " plugin to enable typescript syntax support
 Plugin 'leafgarland/typescript-vim'
-" plugin for tslinting
-Plugin 'heavenshell/vim-tslint'
 " plugin to go to matching tag/parentisis/block...
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
@@ -70,17 +58,20 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 " plugin for git integration with NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
 
 " A client for TSServer
 Plugin 'Quramy/tsuquyomi'
+" plugin for tslinting
+Plugin 'heavenshell/vim-tslint'
 " plugin wrapper for prettier (lint/format)
 Plugin 'prettier/vim-prettier'
 " plugin for linting
 Plugin 'dense-analysis/ale'
 " plugin to show hex colors
 Plugin 'ap/vim-css-color'
+
+Plugin 'mbbill/undotree'
+Plugin 'gruvbox-community/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -105,7 +96,8 @@ let g:ctrlp_by_filename = 0
 
 "-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
 
-colorscheme molokai
+colorscheme gruvbox
+set background=dark
 
 " escape insert mode
 inoremap jj <Esc>
@@ -202,16 +194,20 @@ nnoremap <leader>bd :bd<CR>
 " list buffers
 nnoremap <leader>bs :ls<CR>
 
+" Save file
+nnoremap <C-s> :w<CR>
 
 
+syntax on
 set encoding=utf-8
 set incsearch
 set hlsearch
+set noerrorbells
 set ignorecase
-syntax on
 set ruler
 set number
 set relativenumber
+set nowrap
 set path+=**
 set wildmenu
 set clipboard=unnamed
@@ -222,6 +218,10 @@ set tabstop=2       " The width of a TAB is set to 2.
 set shiftwidth=2    " Indents will have a width of 2
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 call matchadd('ExtraWhitespace', '\s\+$', 11)
@@ -240,11 +240,6 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 
 "" ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
 
-" Vim Matrix
-if argc() == 0
-  autocmd VimEnter * Matrix
-endif
-
 " Remember cursor position
 augroup vimrc-remember-cursor-position
   autocmd!
@@ -253,3 +248,27 @@ augroup END
 
 " auto lint on save
 autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
+
+" use Tsuquyomi's TsuGeterr and Tslint
+augroup tslint
+  function! s:typescript_after(ch, msg)
+    let cnt = len(getqflist())
+    if cnt > 0
+      echomsg printf('[Tslint] %s errors', cnt)
+    endif
+  endfunction
+  let g:tslint_callbacks = {
+    \ 'after_run': function('s:typescript_after')
+    \ }
+
+  let g:tsuquyomi_disable_quickfix = 1
+
+  function! s:ts_quickfix()
+    let winid = win_getid()
+    execute ':TsuquyomiGeterr'
+    call tslint#run('a', winid)
+  endfunction
+
+  autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
+  autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
+augroup END
