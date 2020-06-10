@@ -1,22 +1,8 @@
-" the ctrlpvim is installed via the following steps:
-" Clone the plugin into a separate directory:
-" cd ~/.vim
-" git clone https://github.com/ctrlpvim/ctrlp.vim.git bundle/ctrlp.vim
-" Add to your ~/.vimrc:
-" set runtimepath^=~/.vim/bundle/ctrlp.vim
-" Run at Vim's command line:
-":helptags ~/.vim/bundle/ctrlp.vim/doc
-" Restart Vim and check :help ctrlp.txt for usage instructions and configuration details.
-
-" the rest of the plugins are installed via PluginInstall conmmad
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-" set the runtime path to include CtrlP and initialize
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -59,10 +45,6 @@ Plugin 'preservim/nerdtree'
 " plugin for git integration with NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" A client for TSServer
-Plugin 'Quramy/tsuquyomi'
-" plugin for tslinting
-Plugin 'heavenshell/vim-tslint'
 " plugin wrapper for prettier (lint/format)
 Plugin 'prettier/vim-prettier'
 " plugin for linting
@@ -72,7 +54,9 @@ Plugin 'ap/vim-css-color'
 
 Plugin 'mbbill/undotree'
 Plugin 'gruvbox-community/gruvbox'
+Plugin 'kien/ctrlp.vim'
 
+" Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -89,8 +73,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
 " to enable CtrlP search also by path and not only by file name
 let g:ctrlp_by_filename = 0
 
@@ -99,18 +81,6 @@ let g:ctrlp_by_filename = 0
 colorscheme gruvbox
 set background=dark
 
-" escape insert mode
-inoremap jj <Esc>
-
-" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-" copy to clipboard
-nnoremap y "+y
-" indent
-nnoremap == gg=G''
 let mapleader = "\<Space>"
 
 " git gutter symbols
@@ -123,7 +93,6 @@ let g:gitgutter_sign_modified_removed = '-'
 let g:NERDTreeMapOpen='<ENTER>'
 let g:NERDTreeMapOpenSplit='<C-h>' "NERDTree
 let g:NERDTreeMapOpenVSplit='<C-v>' "NERDTree
-let g:NERDTreeMapOpenInTab='o'
 " nerd tree git symbols
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -143,21 +112,47 @@ let b:ale_fixers = ['prettier', 'eslint']
 " Equivalent to the above.
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
-" key to open and close autopairs help in order to close the autopairs error
-" NEEDS TO BE RESOLVED
-nnoremap <leader>ha :help autopairs<CR>:q<CR>
+" escape insert mode
+inoremap jj <Esc>
+
+" Switching windows
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+noremap <leader>h <C-w>h
+" copy to clipboard
+nnoremap y "+y
+" indent
+nnoremap == gg=G''
 
 " open NerdTree
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
+nnoremap <leader>nf :NERDTreeFind
+
+" no highlight
+nnoremap <leader>nh :nohl<CR>
+
 " YouCompleteMe features
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>yrr :YcmCompleter RefactorRename
 nnoremap <leader>y= :YcmCompleter Format<CR>
 nnoremap <leader>yi :YcmCompleter OrganizeImports<CR>
-" TslintFix feature
-nnoremap <leader>ytf :TslintFix<CR>
-
-
+" Prettier
+nnoremap <leader>p :Prettier<CR>
+" Fugitive
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gp :Gpull origin
+nnoremap <leader>gps :Gpush origin
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gh :Gdiffget //2<CR>
+nnoremap <leader>gl :Gdiffget //3<CR>
+nnoremap <leader>ga :diffput<CR>
+" GitGutter
+nnoremap <leader>gg :GitGutter<CR>
 
 " ------WINDOW------
 " resize screen height/width
@@ -178,7 +173,7 @@ nnoremap <leader>sv :vnew<CR>
 nnoremap <leader>to :tabnew<CR>
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
-nnoremap <leader>tc :tabc<CR>
+nnoremap <leader>td :tabc<CR>
 " tab find {arg} - opens a new tab for the {arg} file
 nnoremap <leader>tf :tabf<CR>
 " list tabs
@@ -196,7 +191,8 @@ nnoremap <leader>bs :ls<CR>
 
 " Save file
 nnoremap <C-s> :w<CR>
-
+" kill tmux session (add name argument to the command)
+nnoremap <leader>ks :!tmux kill-session -t
 
 syntax on
 set encoding=utf-8
@@ -211,7 +207,8 @@ set nowrap
 set path+=**
 set wildmenu
 set clipboard=unnamed
-set tabstop=2       " The width of a TAB is set to 2.
+" The width of a TAB is set to 2.
+set tabstop=2
 " Still it is a \t. It is just that
 " Vim will interpret it to be having
 " a width of 2.
@@ -230,7 +227,6 @@ call matchadd('OverLength', '\%<80v.\%>79v')" to highlight char as red in 79 col
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
 
 " macro to create portal environment itemModel in BB project
 let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
@@ -246,29 +242,3 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!    g`\"" | endif
 augroup END
 
-" auto lint on save
-autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
-
-" use Tsuquyomi's TsuGeterr and Tslint
-augroup tslint
-  function! s:typescript_after(ch, msg)
-    let cnt = len(getqflist())
-    if cnt > 0
-      echomsg printf('[Tslint] %s errors', cnt)
-    endif
-  endfunction
-  let g:tslint_callbacks = {
-    \ 'after_run': function('s:typescript_after')
-    \ }
-
-  let g:tsuquyomi_disable_quickfix = 1
-
-  function! s:ts_quickfix()
-    let winid = win_getid()
-    execute ':TsuquyomiGeterr'
-    call tslint#run('a', winid)
-  endfunction
-
-  autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
-  autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
-augroup END
