@@ -34,8 +34,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " auto complete
 Plugin 'ycm-core/YouCompleteMe'
 
-" plugin to enable typescript syntax support
-Plugin 'leafgarland/typescript-vim'
 " plugin to go to matching tag/parentisis/block...
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
@@ -54,8 +52,9 @@ Plugin 'ap/vim-css-color'
 
 Plugin 'mbbill/undotree'
 Plugin 'gruvbox-community/gruvbox'
-" file finder
-Plugin 'kien/ctrlp.vim'
+Plugin 'sainnhe/gruvbox-material'
+" for better syntax highlighting
+Plugin 'sheerun/vim-polyglot'
 
 " fuzzy search
 Plugin 'junegunn/fzf'
@@ -85,8 +84,26 @@ let g:ctrlp_by_filename = 0
 
 "-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
 
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
+
+" --- vim go (polyglot) settings.
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_auto_sameids = 1
+
 
 let mapleader = "\<Space>"
 
