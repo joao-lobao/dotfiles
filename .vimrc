@@ -52,9 +52,6 @@ Plugin 'ap/vim-css-color'
 
 Plugin 'mbbill/undotree'
 Plugin 'gruvbox-community/gruvbox'
-Plugin 'sainnhe/gruvbox-material'
-" for better syntax highlighting
-Plugin 'sheerun/vim-polyglot'
 
 " fuzzy search
 Plugin 'junegunn/fzf'
@@ -79,31 +76,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" to enable CtrlP search also by path and not only by file name
-let g:ctrlp_by_filename = 0
 
 "-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
 
-let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
-
-" --- vim go (polyglot) settings.
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_highlight_function_parameters = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_format_strings = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_auto_sameids = 1
-
 
 let mapleader = "\<Space>"
 
