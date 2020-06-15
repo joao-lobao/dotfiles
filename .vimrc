@@ -76,13 +76,14 @@ colorscheme gruvbox
 set background=dark
 
 let mapleader = "\<Space>"
-
 " git gutter symbols
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '✹'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
+" remove gitgutter map keys
+let g:gitgutter_map_keys = 0
 " default open file from NerdTree in current or new tab
 let g:NERDTreeMapOpen='<ENTER>'
 let g:NERDTreeMapOpenSplit='<C-h>' "NERDTree
@@ -190,6 +191,7 @@ noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>h <C-w>h
+
 " copy to clipboard
 nnoremap y "+y
 " indent
@@ -213,6 +215,9 @@ nnoremap <leader>cf :CocFix<CR>
 
 " Prettier
 nnoremap <leader>p :Prettier<CR>
+" GitGutter
+nnoremap <leader>ga :GitGutterStageHunk<CR>
+nnoremap <leader>gu :GitGutterUndoHunk<CR>
 " Fugitive
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
@@ -221,7 +226,6 @@ nnoremap <leader>gps :Gpush origin
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gh :Gdiffget //2<CR>
 nnoremap <leader>gl :Gdiffget //3<CR>
-nnoremap <leader>ga :diffput<CR>
 " GitGutter
 nnoremap <leader>gg :GitGutter<CR>
 
@@ -262,7 +266,7 @@ nnoremap <leader>bs :ls<CR>
 " Save file
 nnoremap <C-s> :w<CR>
 " kill tmux session (add name argument to the command)
-nnoremap <leader>ks :!tmux kill-session -t
+nnoremap <leader>tks :!tmux kill-session -t
 
 syntax on
 set encoding=utf-8
@@ -306,6 +310,7 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!    g`\"" | endif
 augroup END
+
 "" ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
 
 
@@ -408,3 +413,4 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " END COC CONFIGURATIONS
+
