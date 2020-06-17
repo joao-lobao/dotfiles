@@ -18,16 +18,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" plugin for git
 Plugin 'tpope/vim-fugitive'
 " Shows git uncommited changes in lines
 Plugin 'airblade/vim-gitgutter'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
 " plugin to go to matching tag/parentisis/block...
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
@@ -36,22 +30,24 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 " plugin for git integration with NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-
 " plugin wrapper for prettier (lint/format)
 Plugin 'prettier/vim-prettier'
 " plugin for linting
 Plugin 'dense-analysis/ale'
 " plugin to show hex colors
 Plugin 'ap/vim-css-color'
-
+" provides an undotree with changes history and revert capabilities
 Plugin 'mbbill/undotree'
+" gruvbox colorscheme
 Plugin 'gruvbox-community/gruvbox'
-
 " fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 " Rooter changes the working directory to the project root when you open a file or directory.
 Plugin 'airblade/vim-rooter'
+" plugin for intelisense for multiple languages; has own extensions for
+" installation for multiple languages/features (is now replacing YouCompleteMe
+" plugin)
 Plugin 'neoclide/coc.nvim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -265,6 +261,12 @@ nnoremap <leader>bs :ls<CR>
 
 " Save file
 nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+vnoremap <C-s> <Esc>:w<CR>
+" Quit
+nnoremap <C-q> :q<CR>
+inoremap <C-q> <Esc>:q<CR>
+vnoremap <C-q> <Esc>:q<CR>
 " kill tmux session (add name argument to the command)
 nnoremap <leader>tks :!tmux kill-session -t
 
