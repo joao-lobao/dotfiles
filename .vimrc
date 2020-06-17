@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " plugins for status/tabline
@@ -26,10 +25,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
 Plugin 'jiangmiao/auto-pairs'
-" plugin wrapper for prettier (lint/format)
-Plugin 'prettier/vim-prettier'
-" plugin for linting
-Plugin 'dense-analysis/ale'
 " plugin to show hex colors
 Plugin 'ap/vim-css-color'
 " provides an undotree with changes history and revert capabilities
@@ -76,28 +71,6 @@ let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
 " remove gitgutter map keys
 let g:gitgutter_map_keys = 0
-" default open file from NerdTree in current or new tab
-let g:NERDTreeMapOpen='<ENTER>'
-let g:NERDTreeMapOpenSplit='<C-h>' "NERDTree
-let g:NERDTreeMapOpenVSplit='<C-v>' "NERDTree
-" nerd tree git symbols
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-
-" Fix files with prettier, and then ESLint.
-let b:ale_fixers = ['prettier', 'eslint']
-" Equivalent to the above.
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 
 " BEGGINING OF FZF SEARCH CONFIGURATION
@@ -204,11 +177,6 @@ nnoremap == gg=G''
 " Undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" open NerdTree
-nnoremap <leader>nn :NERDTreeToggle<CR>
-nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
-nnoremap <leader>nf :NERDTreeFind
-
 " no highlight
 nnoremap <leader>nh :nohl<CR>
 
@@ -218,8 +186,8 @@ nmap <silent> <leader>cr <Plug>(coc-definition)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
-" Prettier
-nnoremap <leader>p :Prettier<CR>
+" Coc-prettier
+nnoremap <leader>p :CocCommand prettier.formatFile<CR>
 " GitGutter
 nnoremap <leader>ga :GitGutterStageHunk<CR>
 nnoremap <leader>gu :GitGutterUndoHunk<CR>
