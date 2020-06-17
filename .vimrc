@@ -26,10 +26,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
 Plugin 'jiangmiao/auto-pairs'
-" plugin for NerdTree
-Plugin 'preservim/nerdtree'
-" plugin for git integration with NerdTree
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 " plugin wrapper for prettier (lint/format)
 Plugin 'prettier/vim-prettier'
 " plugin for linting
@@ -181,6 +177,18 @@ nnoremap <leader>m :Marks<CR>
 
 " escape insert mode
 inoremap jj <Esc>
+" source current file
+nnoremap <leader>ç :source %<CR>
+" Save file
+nnoremap <C-s> :w<CR>
+nnoremap <leader>ss :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+vnoremap <C-s> <Esc>:w<CR>
+" Quit
+nnoremap <C-q> :q<CR>
+nnoremap <leader>q :q<CR>
+inoremap <C-q> <Esc>:q<CR>
+vnoremap <C-q> <Esc>:q<CR>
 
 " Switching windows
 noremap <leader>j <C-w>j
@@ -208,6 +216,7 @@ nnoremap <leader>nh :nohl<CR>
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cr <Plug>(coc-definition)
 nnoremap <leader>cf :CocFix<CR>
+nnoremap <leader>e :CocCommand explorer<CR>
 
 " Prettier
 nnoremap <leader>p :Prettier<CR>
@@ -259,14 +268,6 @@ nnoremap <leader>bd :bd<CR>
 " list buffers
 nnoremap <leader>bs :ls<CR>
 
-" Save file
-nnoremap <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>
-vnoremap <C-s> <Esc>:w<CR>
-" Quit
-nnoremap <C-q> :q<CR>
-inoremap <C-q> <Esc>:q<CR>
-vnoremap <C-q> <Esc>:q<CR>
 " kill tmux session (add name argument to the command)
 nnoremap <leader>tks :!tmux kill-session -t
 
