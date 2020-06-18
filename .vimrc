@@ -186,8 +186,6 @@ nmap <silent> <leader>cr <Plug>(coc-definition)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
-" Coc-prettier
-nnoremap <leader>p :CocCommand prettier.formatFile<CR>
 " GitGutter
 nnoremap <leader>ga :GitGutterStageHunk<CR>
 nnoremap <leader>gu :GitGutterUndoHunk<CR>
@@ -361,6 +359,8 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>p  <Plug>(coc-format)
+nmap <leader>p  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
