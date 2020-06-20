@@ -195,8 +195,9 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpull origin
 nnoremap <leader>gps :Gpush origin
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gh :Gdiffget //2<CR>
-nnoremap <leader>gl :Gdiffget //3<CR>
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
+nnoremap <leader>gb :Gblame<CR>
 " GitGutter
 nnoremap <leader>gg :GitGutter<CR>
 
