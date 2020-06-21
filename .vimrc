@@ -169,8 +169,6 @@ noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>h <C-w>h
 
-" copy to clipboard
-nnoremap y "+y
 " indent
 nnoremap == gg=G''
 
@@ -250,7 +248,7 @@ set relativenumber
 set nowrap
 set path+=**
 set wildmenu
-set clipboard=unnamed
+set clipboard=unnamedplus
 " The width of a TAB is set to 2.
 set tabstop=2
 " Still it is a \t. It is just that
