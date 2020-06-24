@@ -40,6 +40,16 @@ Plugin 'airblade/vim-rooter'
 " installation for multiple languages/features (is now replacing YouCompleteMe
 " plugin)
 Plugin 'neoclide/coc.nvim'
+
+" temporary plugin to experiment lazygit with
+" plugin for floating/pop window interface to use with lazygit or other
+" features like the terminal for eg
+""""""""""""" EXPERIMENTAL  """""""""""""
+Plugin 'voldikss/vim-floaterm'
+" temporary plugin to experiment for git flow
+" plugin for git flow
+""""""""""""" EXPERIMENTAL  """""""""""""
+Plugin 'kdheepak/lazygit.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -190,6 +200,8 @@ nmap <silent> <leader>cr <Plug>(coc-definition)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
+" Lazygit
+nnoremap <leader>Lg :FloatermNew lazygit<CR>
 " GitGutter
 nnoremap <leader>ga :GitGutterStageHunk<CR>
 nnoremap <leader>gu :GitGutterUndoHunk<CR>
