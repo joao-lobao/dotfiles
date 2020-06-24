@@ -170,7 +170,7 @@ inoremap jj <Esc>
 nnoremap <leader>ç :source %<CR>
 " Save file
 nnoremap <C-s> :w<CR>
-nnoremap <leader>ss :w<CR>
+nnoremap <leader>S :w<CR>
 inoremap <C-s> <Esc>:w<CR>
 vnoremap <C-s> <Esc>:w<CR>
 " Quit
@@ -209,7 +209,7 @@ nnoremap <leader>gu :GitGutterUndoHunk<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpull origin
-nnoremap <leader>gps :Gpush origin
+nnoremap <leader>gP :Gpush origin
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
