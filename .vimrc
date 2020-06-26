@@ -176,6 +176,7 @@ vnoremap <C-s> <Esc>:w<CR>
 " Quit
 nnoremap <C-q> :q<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 inoremap <C-q> <Esc>:q<CR>
 vnoremap <C-q> <Esc>:q<CR>
 
@@ -267,6 +268,7 @@ set nowrap
 set path+=**
 set wildmenu
 set clipboard=unnamedplus
+set foldmethod=indent
 " The width of a TAB is set to 2.
 set tabstop=2
 " Still it is a \t. It is just that
