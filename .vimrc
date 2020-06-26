@@ -130,10 +130,15 @@ let g:fzf_colors =
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
+" Get text in files with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 " Get text in files with Rg
 " added --no-ignore-vcs option to search in directories project in gitignore
-command! -bang -nargs=* Rg
+command! -bang -nargs=* Rgi
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore-vcs '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
@@ -159,6 +164,7 @@ command! -bang -nargs=* GGrep
 
 
 map <C-f> :Files<CR>
+map <leader><C-f> :GFiles<CR>
 map <leader>b :Buffers<CR>
 nnoremap <leader>rg :Rg<CR>
 " nnoremap <leader>t :Tags<CR> this will need ctags not used for now
