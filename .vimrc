@@ -58,7 +58,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-"-------------BEGIN JOAO LOBAO CUSTOMIZATION-------------
+"-------------BEGIN CUSTOMIZATION-------------
 
 colorscheme gruvbox
 set background=dark
@@ -293,7 +293,7 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!    g`\"" | endif
 augroup END
 
-"" ------------- END OF JOAO LOBAO CUSTOMIZATION-------------
+"" ------------- END CUSTOMIZATION-------------
 
 
 
