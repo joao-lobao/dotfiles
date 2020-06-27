@@ -167,16 +167,15 @@ inoremap jj <Esc>
 " source current file
 nnoremap <leader>ç :source %<CR>
 " Save file
-nnoremap <C-s> :w<CR>
-nnoremap <leader>S :w<CR>
-inoremap <C-s> <Esc>:w<CR>
-vnoremap <C-s> <Esc>:w<CR>
+nnoremap <leader>w :w<CR>
 " Quit
-nnoremap <C-q> :q<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
-inoremap <C-q> <Esc>:q<CR>
-vnoremap <C-q> <Esc>:q<CR>
+
+" Refresh file
+noremap <leader>r :e!<CR>
+" Go to previous file
+noremap <leader>P :e#<CR>
 
 " Switching windows
 noremap <leader>j <C-w>j
@@ -220,9 +219,6 @@ nnoremap <Up> <C-w>+
 nnoremap <Down> <C-w>-
 nnoremap <Right> <C-w>>
 nnoremap <Left> <C-w><
-" rotate window in each ways
-nnoremap <leader>r <C-w>r
-nnoremap <leader>R <C-w>R
 " spliting with new files
 nnoremap <leader>s :new<CR>
 nnoremap <leader>sv :vnew<CR>
@@ -369,7 +365,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cR <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
