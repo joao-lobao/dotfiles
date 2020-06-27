@@ -177,7 +177,7 @@ noremap <leader>r :e!<CR>
 " Go to previous file
 noremap <leader>P :e#<CR>
 " Lazygit
-noremap <leader>Lg :!lazygit<CR>
+noremap <leader>L :!lazygit<CR>
 
 " Switching windows
 noremap <leader>j <C-w>j
