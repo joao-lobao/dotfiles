@@ -170,6 +170,7 @@ nnoremap <leader>rg :Rg<CR>
 " nnoremap <leader>t :Tags<CR> this will need ctags not used for now
 nnoremap <leader>m :Marks<CR>
 
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " escape insert mode
 inoremap jj <Esc>
 " source current file
