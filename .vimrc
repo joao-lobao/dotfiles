@@ -378,3 +378,86 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " -------------END COC CONFIGURATIONS-------------
+
+
+
+" -------------HAVE TO BE LAST BECAUSE OF LOADING ORDER-------------
+" Create a dictionary of the colors for later use
+" https://github.com/zeorin/dotfiles/blob/e01cebf/.vimrc#L864-L900
+" took this solution to colorize devicons in coc-explorer
+		let g:gruvbox = {
+			\"gui": {
+				\"base03": "#002b36",
+				\"base02": "#073642",
+				\"base01": "#586e75",
+				\"base00": "#657b83",
+				\"base0": "#839496",
+				\"base1": "#93a1a1",
+				\"base2": "#eee8d5",
+				\"base3": "#fdf6e3",
+				\"yellow": "#b58900",
+				\"orange": "#cb4b16",
+				\"red": "#dc322f",
+				\"magenta": "#d33682",
+				\"violet": "#6c71c4",
+				\"blue": "#268bd2",
+				\"cyan": "#2aa198",
+				\"green": "#719e07"
+			\},
+			\"cterm": {
+				\"base03": 8,
+				\"base02": 0,
+				\"base01": 10,
+				\"base00": 11,
+				\"base0": 12,
+				\"base1": 14,
+				\"base2": 7,
+				\"base3": 15,
+				\"yellow": 3,
+				\"orange": 9,
+				\"red": 1,
+				\"magenta": 5,
+				\"violet": 13,
+				\"blue": 4,
+				\"cyan": 6,
+				\"green": 2
+			\}
+		\}
+
+function! DeviconsColors(config)
+			let colors = keys(a:config)
+			augroup devicons_colors
+				autocmd!
+				for color in colors
+					if color == 'normal'
+						exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
+							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
+							\ 'else | '.
+							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
+							\ 'endif'
+					elseif color == 'emphasize'
+						exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
+							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
+							\ 'else | '.
+							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
+							\ 'endif'
+					else
+						exec 'autocmd FileType coc-explorer highlight devicons_'.color.' guifg='.g:gruvbox.gui[color].' ctermfg='.g:gruvbox.cterm[color]
+					endif
+					exec 'autocmd FileType coc-explorer syntax match devicons_'.color.' /\v'.join(a:config[color], '|').'/ containedin=ALL'
+				endfor
+			augroup END
+		endfunction
+		let g:devicons_colors = {
+			\'normal': ['', '', '', '', ''],
+			\'emphasize': ['', '', '', '', '', '', '', '', '', '', ''],
+			\'yellow': ['', '', ''],
+			\'orange': ['', '', '', 'λ', '', ''],
+			\'red': ['', '', '', '', '', '', '', '', ''],
+			\'magenta': [''],
+			\'violet': ['', '', '', ''],
+			\'blue': ['', '', '', '', '', '', '', '', '', '', '', '', ''],
+			\'cyan': ['', '', '', ''],
+			\'green': ['', '', '', '']
+		\}
+		call DeviconsColors(g:devicons_colors)
