@@ -168,6 +168,7 @@ set path+=**
 set wildmenu
 set clipboard=unnamedplus
 set foldmethod=indent
+set foldlevelstart=99
 " The width of a TAB is set to 2.
 set tabstop=2
 " Still it is a \t. It is just that
