@@ -35,6 +35,8 @@ Plugin 'airblade/vim-rooter'
 " plugin for intelisense for multiple languages; has own extensions for
 " multiple languages/features
 Plugin 'neoclide/coc.nvim'
+" shows devicons on file explorer - works with an installed Nerd Font
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on
@@ -80,7 +82,8 @@ nnoremap <leader>r :e!<CR>
 
 " Go to previous file
 nnoremap <leader>P :e#<CR>
-" Lazygit
+" Lazygit 
+" requires lazygit installation on the OS
 nnoremap <leader>L :!lazygit<CR>
 
 " Switching windows
@@ -199,6 +202,8 @@ augroup END
 
 
 " -------------BEGGINING FZF SEARCH CONFIGURATION-------------
+" requires ripgrep and fzf installation on the OS
+
 " This is the default extra key bindings
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
