@@ -5,7 +5,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 " plugins for status/tabline
 Plugin 'vim-airline/vim-airline'
@@ -37,7 +36,6 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " shows devicons on file explorer - works with an installed Nerd Font
 Plugin 'ryanoasis/vim-devicons'
-
 call vundle#end()
 filetype plugin indent on
 
@@ -192,6 +190,8 @@ set si "Smart indent
 
 " macro to create portal environment itemModel in BB project
 let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
+" macro to change angular.json for single component unit testing purposes
+let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
 
 " Remember cursor position
 augroup vimrc-remember-cursor-position
@@ -258,23 +258,6 @@ command! -bang -nargs=* Rgi
       \ call fzf#vim#grep(
       \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore-vcs '.shellescape(<q-args>), 1,
       \   fzf#vim#with_preview(), <bang>0)
-
-" Ripgrep advanced
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
-" Git grep
-command! -bang -nargs=* GGrep
-      \ call fzf#vim#grep(
-      \   'git grep --line-number '.shellescape(<q-args>), 0,
-      \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 " -------------END FZF SEARCH CONFIGURATION-------------
 
