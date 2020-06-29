@@ -80,7 +80,7 @@ nnoremap <leader>r :e!<CR>
 
 " Go to previous file
 nnoremap <leader>P :e#<CR>
-" Lazygit 
+" Lazygit
 " requires lazygit installation on the OS
 nnoremap <leader>L :!lazygit<CR>
 
@@ -100,7 +100,7 @@ nnoremap <leader>nh :nohl<CR>
 nnoremap <leader>cl oconsole.log()<Esc>=G$i
 " Coc
 nmap <silent> <leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>cr <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
