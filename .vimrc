@@ -71,6 +71,8 @@ inoremap jj <Esc>
 nnoremap <leader>ç :source %<CR>
 " Save file
 nnoremap <leader>w :w<CR>
+" Save all files opened
+nnoremap <leader>W :wa<CR>
 " Quit
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
@@ -116,8 +118,6 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Gblame<CR>
-" GitGutter
-nnoremap <leader>gg :GitGutter<CR>
 
 " ------WINDOW------
 " resize screen height/width
@@ -146,6 +146,7 @@ nnoremap <leader>bo :enew<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bD :bd!<CR>
 " list buffers
 nnoremap <leader>bs :ls<CR>
 
@@ -155,7 +156,7 @@ nnoremap <leader>tks :!tmux kill-session -t
 syntax on
 set encoding=utf-8
 set incsearch
-set hlsearch
+set shortmess-=S
 set noerrorbells
 set ignorecase
 set ruler
