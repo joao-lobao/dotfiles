@@ -9,21 +9,21 @@ Plugin 'VundleVim/Vundle.vim'
 " plugins for status/tabline
 Plugin 'vim-airline/vim-airline'
 " plugin to set multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 " plugin surrounding feature
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
 " plugin for git
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 " Shows git uncommited changes in lines
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 " plugin to go to matching tag/parentisis/block...
 Plugin 'adelarsq/vim-matchit'
 " plugin to insert or delete brackets, parens, quotes in pair
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 " plugin to show hex colors
-Plugin 'ap/vim-css-color'
+" Plugin 'ap/vim-css-color'
 " gruvbox colorscheme
 Plugin 'gruvbox-community/gruvbox'
 " fuzzy search
