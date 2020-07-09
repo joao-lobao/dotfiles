@@ -91,6 +91,22 @@ nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
+
+" Coc Git
+nnoremap <leader>ga :CocCommand git.chunkStage<CR>
+nnoremap <leader>gu :Coccommand git.chunkundo<cr>
+" navigate chunks of current buffer
+nmap <leader>g- <Plug>(coc-git-prevchunk)
+nmap <leader>g+ <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap <leader>gk <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap <leader>cgc <Plug>(coc-git-commit)
+nnoremap <leader>cgz :CocCommand git.foldUnchanged<CR>
+nnoremap <leader>cgt :CocCommand git.toggleGutters<CR>
+nnoremap <leader>clc :CocList --number-select commits<CR>
+
+" Vim Fugitive
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpull origin
