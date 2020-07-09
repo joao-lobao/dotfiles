@@ -8,22 +8,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " plugins for status/tabline
 Plugin 'vim-airline/vim-airline'
-" plugin to set multiple cursors
-" Plugin 'terryma/vim-multiple-cursors'
 " plugin surrounding feature
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
-" plugin for git
-" Plugin 'tpope/vim-fugitive'
-" Shows git uncommited changes in lines
-" Plugin 'airblade/vim-gitgutter'
 " plugin to go to matching tag/parentisis/block...
 Plugin 'adelarsq/vim-matchit'
-" plugin to insert or delete brackets, parens, quotes in pair
-" Plugin 'jiangmiao/auto-pairs'
-" plugin to show hex colors
-" Plugin 'ap/vim-css-color'
+" color highlighter
+Plugin 'ap/vim-css-color'
+" plugin for git integration
+Plugin 'tpope/vim-fugitive'
 " gruvbox colorscheme
 Plugin 'gruvbox-community/gruvbox'
 " fuzzy search
@@ -45,16 +39,7 @@ filetype plugin indent on
 colorscheme gruvbox
 set background=dark
 
-" GitGutter symbols
 let mapleader = "\<Space>"
-" git gutter symbols
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
-" remove gitgutter map keys
-let g:gitgutter_map_keys = 0
 
 " FZF mappings
 map <C-f> :Files<CR>
@@ -106,10 +91,6 @@ nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
-" GitGutter
-nnoremap <leader>ga :GitGutterStageHunk<CR>
-nnoremap <leader>gu :GitGutterUndoHunk<CR>
-" Fugitive
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpull origin
