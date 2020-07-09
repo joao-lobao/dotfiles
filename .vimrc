@@ -94,7 +94,7 @@ nnoremap <leader>e :CocCommand explorer<CR>
 
 " Coc Git
 nnoremap <leader>ga :CocCommand git.chunkStage<CR>
-nnoremap <leader>gu :Coccommand git.chunkUndo<cr>
+nnoremap <leader>gu :CocCommand git.chunkUndo<cr>
 " navigate chunks of current buffer
 nmap <leader>g- <Plug>(coc-git-prevchunk)
 nmap <leader>g+ <Plug>(coc-git-nextchunk)
