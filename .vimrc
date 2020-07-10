@@ -100,10 +100,10 @@ nmap <leader>g- <Plug>(coc-git-prevchunk)
 nmap <leader>g+ <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap <leader>gk <Plug>(coc-git-chunkinfo)
+nnoremap <leader>gt :CocCommand git.toggleGutters<CR>
+nnoremap <leader>gz :CocCommand git.foldUnchanged<CR>
 " show commit contains current position
 nmap <leader>cgc <Plug>(coc-git-commit)
-nnoremap <leader>cgz :CocCommand git.foldUnchanged<CR>
-nnoremap <leader>cgt :CocCommand git.toggleGutters<CR>
 nnoremap <leader>clc :CocList --number-select commits<CR>
 
 " Vim Fugitive
@@ -153,8 +153,9 @@ nnoremap <leader>tks :!tmux kill-session -t
 syntax on
 set encoding=utf-8
 set incsearch
+set hlsearch
 set shortmess-=S
-set noerrorbells
+set belloff=all
 set ignorecase
 set ruler
 set number
