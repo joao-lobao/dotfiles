@@ -88,7 +88,11 @@ nnoremap <leader>cl oconsole.log()<Esc>=G$i
 " Coc
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
 nnoremap <leader>cf :CocFix<CR>
+" show commit contains current position
+nmap <leader>cgc <Plug>(coc-git-commit)
 nnoremap <leader>e :CocCommand explorer<CR>
 
 
@@ -102,9 +106,6 @@ nmap <leader>g+ <Plug>(coc-git-nextchunk)
 nmap <leader>gk <Plug>(coc-git-chunkinfo)
 nnoremap <leader>gt :CocCommand git.toggleGutters<CR>
 nnoremap <leader>gz :CocCommand git.foldUnchanged<CR>
-" show commit contains current position
-nmap <leader>cgc <Plug>(coc-git-commit)
-nnoremap <leader>clc :CocList --number-select commits<CR>
 
 " Vim Fugitive
 nnoremap <leader>gs :G<CR>
@@ -149,6 +150,10 @@ nnoremap <leader>bs :ls<CR>
 
 " kill tmux session (add name argument to the command)
 nnoremap <leader>tks :!tmux kill-session -t
+
+" shift lines up and down in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 syntax on
 set encoding=utf-8
