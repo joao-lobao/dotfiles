@@ -6,21 +6,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-" plugins for status/tabline
+" plugins for statusline/tabline
 Plugin 'vim-airline/vim-airline'
-" plugin surrounding feature
+" plugin for auto pairs feature
+Plugin 'jiangmiao/auto-pairs'
+" plugin for surrounding feature
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
-" plugin to go to matching tag/parentisis/block...
-Plugin 'adelarsq/vim-matchit'
 " color highlighter
 Plugin 'ap/vim-css-color'
 " plugin for git integration
 Plugin 'tpope/vim-fugitive'
 " gruvbox colorscheme
 Plugin 'gruvbox-community/gruvbox'
-" fuzzy search
+" fuzzy file and text search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 " Rooter changes the working directory to the project root when you open a file or directory.
@@ -42,12 +42,11 @@ set background=dark
 let mapleader = "\<Space>"
 
 " FZF mappings
-map <C-f> :Files<CR>
-map <leader><C-f> :GFiles<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>rg :Rg<CR>
-" nnoremap <leader>t :Tags<CR> this will need ctags not used for now
-nnoremap <leader>m :Marks<CR>
+map <leader>F :Files<CR>
+map <leader>B :Buffers<CR>
+nnoremap <leader>R :Rgi<CR>
+nnoremap <leader>T :Tags<CR>
+nnoremap <leader>M :Marks<CR>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " escape insert mode
@@ -56,11 +55,8 @@ inoremap jj <Esc>
 nnoremap <leader>ç :source %<CR>
 " Save file
 nnoremap <leader>w :w<CR>
-" Save all files opened
-nnoremap <leader>W :wa<CR>
 " Quit
 nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
 
 " Refresh file
 nnoremap <leader>r :e!<CR>
@@ -83,73 +79,27 @@ nnoremap == gg=G''
 " no highlight
 nnoremap <leader>nh :nohl<CR>
 
-" console.log snippet
-nnoremap <leader>cl oconsole.log()<Esc>=G$i
 " Coc
-nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
 nnoremap <leader>cf :CocFix<CR>
-" show commit contains current position
-nmap <leader>cgc <Plug>(coc-git-commit)
 nnoremap <leader>e :CocCommand explorer<CR>
-
-
-" Coc Git
-nnoremap <leader>ga :CocCommand git.chunkStage<CR>
-nnoremap <leader>gu :CocCommand git.chunkUndo<cr>
-" navigate chunks of current buffer
-nmap <leader>g- <Plug>(coc-git-prevchunk)
-nmap <leader>g+ <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-nmap <leader>gk <Plug>(coc-git-chunkinfo)
-nnoremap <leader>gt :CocCommand git.toggleGutters<CR>
-nnoremap <leader>gz :CocCommand git.foldUnchanged<CR>
 
 " Vim Fugitive
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gp :Gpull origin
-nnoremap <leader>gP :Gpush origin
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Gblame<CR>
 
-" ------WINDOW------
-" resize screen height/width
-nnoremap <Up> <C-w>+
-nnoremap <Down> <C-w>-
-nnoremap <Right> <C-w>>
-nnoremap <Left> <C-w><
-" spliting with new files
-nnoremap <leader>s :new<CR>
-nnoremap <leader>sv :vnew<CR>
-
-" ------TABS------
-" tab naviagation, open and closing
-nnoremap <leader>to :tabnew<CR>
-nnoremap <leader>tn :tabn<CR>
-nnoremap <leader>tp :tabp<CR>
-nnoremap <leader>td :tabc<CR>
-" tab find {arg} - opens a new tab for the {arg} file
-nnoremap <leader>tf :tabf<CR>
-" list tabs
-nnoremap <leader>ts :tabs<CR>
-
-" ------BUFFERS------
-" buffer naviagation, open and deleting
-nnoremap <leader>bo :enew<CR>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bd :bd<CR>
-nnoremap <leader>bD :bd!<CR>
-" list buffers
-nnoremap <leader>bs :ls<CR>
-
-" kill tmux session (add name argument to the command)
-nnoremap <leader>tks :!tmux kill-session -t
+" Specific custom macros and mappings
+inoremap cl<CR> console.log()<Esc>=G$i
+let @k=":!tmux kill-session -t"
+let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
+let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
 
 " shift lines up and down in visual mode
 vnoremap J :m '>+1<CR>gv=gv
@@ -191,11 +141,6 @@ call matchadd('OverLength', '\%<80v.\%>79v')" to highlight char as red in 79 col
 
 set ai "Auto indent
 set si "Smart indent
-
-" macro to create portal environment itemModel in BB project
-let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
-" macro to change angular.json for single component unit testing purposes
-let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
 
 " Remember cursor position
 augroup vimrc-remember-cursor-position
@@ -372,79 +317,79 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Create a dictionary of the colors for later use
 " https://github.com/zeorin/dotfiles/blob/e01cebf/.vimrc#L864-L900
 " took this solution to colorize devicons in coc-explorer
-		let g:gruvbox = {
-			\"gui": {
-				\"base03": "#002b36",
-				\"base02": "#073642",
-				\"base01": "#586e75",
-				\"base00": "#657b83",
-				\"base0": "#839496",
-				\"base1": "#93a1a1",
-				\"base2": "#eee8d5",
-				\"base3": "#fdf6e3",
-				\"yellow": "#b58900",
-				\"orange": "#cb4b16",
-				\"red": "#dc322f",
-				\"magenta": "#d33682",
-				\"violet": "#6c71c4",
-				\"blue": "#268bd2",
-				\"cyan": "#2aa198",
-				\"green": "#719e07"
-			\},
-			\"cterm": {
-				\"base03": 8,
-				\"base02": 0,
-				\"base01": 10,
-				\"base00": 11,
-				\"base0": 12,
-				\"base1": 14,
-				\"base2": 7,
-				\"base3": 15,
-				\"yellow": 3,
-				\"orange": 9,
-				\"red": 1,
-				\"magenta": 5,
-				\"violet": 13,
-				\"blue": 4,
-				\"cyan": 6,
-				\"green": 2
-			\}
-		\}
+let g:gruvbox = {
+      \"gui": {
+      \"base03": "#002b36",
+      \"base02": "#073642",
+      \"base01": "#586e75",
+      \"base00": "#657b83",
+      \"base0": "#839496",
+      \"base1": "#93a1a1",
+      \"base2": "#eee8d5",
+      \"base3": "#fdf6e3",
+      \"yellow": "#b58900",
+      \"orange": "#cb4b16",
+      \"red": "#dc322f",
+      \"magenta": "#d33682",
+      \"violet": "#6c71c4",
+      \"blue": "#268bd2",
+      \"cyan": "#2aa198",
+      \"green": "#719e07"
+      \},
+      \"cterm": {
+      \"base03": 8,
+      \"base02": 0,
+      \"base01": 10,
+      \"base00": 11,
+      \"base0": 12,
+      \"base1": 14,
+      \"base2": 7,
+      \"base3": 15,
+      \"yellow": 3,
+      \"orange": 9,
+      \"red": 1,
+      \"magenta": 5,
+      \"violet": 13,
+      \"blue": 4,
+      \"cyan": 6,
+      \"green": 2
+      \}
+      \}
 
 function! DeviconsColors(config)
-			let colors = keys(a:config)
-			augroup devicons_colors
-				autocmd!
-				for color in colors
-					if color == 'normal'
-						exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
-							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
-							\ 'else | '.
-							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
-							\ 'endif'
-					elseif color == 'emphasize'
-						exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
-							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
-							\ 'else | '.
-							\ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
-							\ 'endif'
-					else
-						exec 'autocmd FileType coc-explorer highlight devicons_'.color.' guifg='.g:gruvbox.gui[color].' ctermfg='.g:gruvbox.cterm[color]
-					endif
-					exec 'autocmd FileType coc-explorer syntax match devicons_'.color.' /\v'.join(a:config[color], '|').'/ containedin=ALL'
-				endfor
-			augroup END
-		endfunction
-		let g:devicons_colors = {
-			\'normal': ['', '', '', '', ''],
-			\'emphasize': ['', '', '', '', '', '', '', '', '', '', ''],
-			\'yellow': ['', '', ''],
-			\'orange': ['', '', '', 'λ', '', ''],
-			\'red': ['', '', '', '', '', '', '', '', ''],
-			\'magenta': [''],
-			\'violet': ['', '', '', ''],
-			\'blue': ['', '', '', '', '', '', '', '', '', '', '', '', ''],
-			\'cyan': ['', '', '', ''],
-			\'green': ['', '', '', '']
-		\}
-		call DeviconsColors(g:devicons_colors)
+  let colors = keys(a:config)
+  augroup devicons_colors
+    autocmd!
+    for color in colors
+      if color == 'normal'
+        exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
+              \ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
+              \ 'else | '.
+              \ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
+              \ 'endif'
+      elseif color == 'emphasize'
+        exec 'autocmd FileType coc-explorer if &background == ''dark'' | '.
+              \ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base1.' ctermfg='.g:gruvbox.cterm.base1.' | '.
+              \ 'else | '.
+              \ 'highlight devicons_'.color.' guifg='.g:gruvbox.gui.base01.' ctermfg='.g:gruvbox.cterm.base01.' | '.
+              \ 'endif'
+      else
+        exec 'autocmd FileType coc-explorer highlight devicons_'.color.' guifg='.g:gruvbox.gui[color].' ctermfg='.g:gruvbox.cterm[color]
+      endif
+      exec 'autocmd FileType coc-explorer syntax match devicons_'.color.' /\v'.join(a:config[color], '|').'/ containedin=ALL'
+    endfor
+  augroup END
+endfunction
+let g:devicons_colors = {
+      \'normal': ['', '', '', '', ''],
+      \'emphasize': ['', '', '', '', '', '', '', '', '', '', ''],
+      \'yellow': ['', '', ''],
+      \'orange': ['', '', '', 'λ', '', ''],
+      \'red': ['', '', '', '', '', '', '', '', ''],
+      \'magenta': [''],
+      \'violet': ['', '', '', ''],
+      \'blue': ['', '', '', '', '', '', '', '', '', '', '', '', ''],
+      \'cyan': ['', '', '', ''],
+      \'green': ['', '', '', '']
+      \}
+call DeviconsColors(g:devicons_colors)
