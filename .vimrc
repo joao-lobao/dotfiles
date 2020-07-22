@@ -95,6 +95,12 @@ nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Gblame<CR>
 
+" ------BUFFERS------
+" buffer naviagation, open and deleting
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bd :bd<CR>
+
 " Specific custom macros and mappings
 inoremap cl<CR> console.log()<Esc>=G$i
 let @k=":!tmux kill-session -t"
