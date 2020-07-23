@@ -157,6 +157,10 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!    g`\"" | endif
 augroup END
+
+" This solves the '>4;2m' chars showing on cursor position > :h modifyOtherKeys for more info
+let &t_TI = ""
+let &t_TE = ""
 " -------------END CUSTOMIZATION-------------
 
 
