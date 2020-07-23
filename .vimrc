@@ -48,7 +48,6 @@ nnoremap <leader>R :Rgi<CR>
 nnoremap <leader>T :Tags<CR>
 nnoremap <leader>M :Marks<CR>
 
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " escape insert mode
 inoremap jj <Esc>
 " source current file
@@ -80,11 +79,12 @@ nnoremap == gg=G''
 nnoremap <leader>nh :nohl<CR>
 
 " Coc
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> <leader>cr <Plug>(coc-references)
-nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
-nnoremap <leader>cf :CocFix<CR>
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>dp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>dn <Plug>(coc-diagnostic-next)
+nnoremap <leader>f :CocFix<CR>
 nnoremap <leader>e :CocCommand explorer<CR>
 
 " Vim Fugitive
@@ -163,7 +163,7 @@ augroup END
 " This is the default extra key bindings
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
+      \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
 " Enable per-command history.
