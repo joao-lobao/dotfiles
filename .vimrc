@@ -101,6 +101,10 @@ nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
 
+" Formatting selected code.
+xmap <leader>p  <Plug>(coc-format)
+nmap <leader>p  <Plug>(coc-format)
+
 " Specific custom macros and mappings
 inoremap cl<CR> console.log()<Esc>=G$i
 let @k=":!tmux kill-session -t"
@@ -287,12 +291,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-xmap <leader>p  <Plug>(coc-format)
-nmap <leader>p  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
