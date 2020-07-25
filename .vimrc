@@ -14,6 +14,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
+" plugin to match corresponding lcosing brackets, parenthisis, tags...
+Plugin 'tmhedberg/matchit'
 " color highlighter
 Plugin 'ap/vim-css-color'
 " plugin for git integration
@@ -100,6 +102,7 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bD :bd!<CR>
 
 " Formatting selected code.
 xmap <leader>p  <Plug>(coc-format)
@@ -114,6 +117,16 @@ let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
 " shift lines up and down in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" no operation keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 syntax on
 set encoding=utf-8
