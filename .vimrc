@@ -14,7 +14,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 " plugin commentary feature
 Plugin 'tpope/vim-commentary'
-" plugin to match corresponding lcosing brackets, parenthisis, tags...
+" plugin to match corresponding closing brackets, parenthisis, tags...
 Plugin 'tmhedberg/matchit'
 " color highlighter
 Plugin 'ap/vim-css-color'
@@ -45,8 +45,10 @@ let mapleader = "\<Space>"
 
 " FZF mappings
 map <leader>F :Files<CR>
+map <leader>gF :GFiles<CR>
 map <leader>B :Buffers<CR>
 nnoremap <leader>R :Rgi<CR>
+nnoremap <leader>gR :Rg<CR>
 nnoremap <leader>T :Tags<CR>
 nnoremap <leader>M :Marks<CR>
 
