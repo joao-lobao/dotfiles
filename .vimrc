@@ -30,8 +30,6 @@ Plugin 'airblade/vim-rooter'
 " plugin for intelisense for multiple languages; has own extensions for
 " multiple languages/features
 Plugin 'neoclide/coc.nvim'
-" shows devicons on file explorer - works with an installed Nerd Font
-Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 
@@ -132,7 +130,7 @@ inoremap <Right> <Nop>
 " Netrw settings to preview file on right window
 nnoremap <leader>e :Explore<CR>
 let g:netrw_preview   = 1
-let g:netrw_liststyle = 3
+" let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 
 syntax on
