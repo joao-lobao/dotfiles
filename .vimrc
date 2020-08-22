@@ -30,6 +30,9 @@ Plugin 'airblade/vim-rooter'
 " plugin for intelisense for multiple languages; has own extensions for
 " multiple languages/features
 Plugin 'neoclide/coc.nvim'
+" add custom snippets plugin
+Plugin 'SirVer/ultisnips'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -108,7 +111,6 @@ xmap <leader>p  <Plug>(coc-format)
 nmap <leader>p  <Plug>(coc-format)
 
 " Specific custom macros and mappings
-inoremap cl<CR> console.log()<Esc>=G$i
 let @k=":!tmux kill-session -t"
 let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
 let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
@@ -179,6 +181,11 @@ augroup END
 " This solves the '>4;2m' chars showing on cursor position > :h modifyOtherKeys for more info
 let &t_TI = ""
 let &t_TE = ""
+
+" UltiSnips config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " -------------END CUSTOMIZATION-------------
 
