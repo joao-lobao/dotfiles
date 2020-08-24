@@ -183,7 +183,7 @@ let &t_TI = ""
 let &t_TE = ""
 
 " UltiSnips config
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger=">>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
