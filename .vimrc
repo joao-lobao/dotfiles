@@ -40,6 +40,19 @@ filetype plugin indent on
 
 
 " -------------BEGIN CUSTOMIZATION-------------
+
+let g:coc_global_extensions = [
+\ 'coc-yank',
+\ 'coc-tsserver',
+\ 'coc-tslint-plugin',
+\ 'coc-prettier',
+\ 'coc-json',
+\ 'coc-html',
+\ 'coc-eslint',
+\ 'coc-css',
+\ 'coc-angular'
+\ ]
+
 colorscheme gruvbox
 set background=dark
 
