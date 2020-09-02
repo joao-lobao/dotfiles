@@ -32,7 +32,8 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " add custom snippets plugin
 Plugin 'SirVer/ultisnips'
-
+" fancy startup plugin
+Plugin 'mhinz/vim-startify'
 call vundle#end()
 filetype plugin indent on
 
