@@ -32,6 +32,8 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " fancy startup plugin
 Plugin 'mhinz/vim-startify'
+" shows devicons on file explorer - works with an installed Nerd Font
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 
