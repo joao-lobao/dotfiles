@@ -141,15 +141,6 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Netrw settings to preview file on right window
-
-" checks if a lexplore window is open and toggles Lexplore on the correct
-" directory
-nnoremap <expr> <leader>e exists("t:netrw_lexbufnr") ? ':Lexplore<CR>' : ':Lexplore %:p:h<CR>'
-
-let g:netrw_preview   = 1
-" let g:netrw_liststyle = 3
-let g:netrw_winsize   = 30
 
 syntax on
 set encoding=utf-8
