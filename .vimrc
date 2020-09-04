@@ -30,8 +30,6 @@ Plugin 'airblade/vim-rooter'
 " plugin for intelisense for multiple languages; has own extensions for
 " multiple languages/features
 Plugin 'neoclide/coc.nvim'
-" add custom snippets plugin
-Plugin 'SirVer/ultisnips'
 " fancy startup plugin
 Plugin 'mhinz/vim-startify'
 call vundle#end()
@@ -199,11 +197,6 @@ augroup END
 " This solves the '>4;2m' chars showing on cursor position > :h modifyOtherKeys for more info
 let &t_TI = ""
 let &t_TE = ""
-
-" UltiSnips config
-let g:UltiSnipsExpandTrigger=">>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " -------------END CUSTOMIZATION-------------
 
