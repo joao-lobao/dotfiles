@@ -67,8 +67,6 @@ nnoremap <leader>M :Marks<CR>
 
 " escape insert mode
 inoremap jj <Esc>
-" source current file
-nnoremap <leader>ç :source %<CR>
 " Save file
 nnoremap <leader>w :w<CR>
 " Quit
@@ -198,6 +196,10 @@ augroup END
 let &t_TI = ""
 let &t_TE = ""
 
+" Snippets
+nnoremap <leader>cl Sconsole.log()<Esc>i
+nnoremap <leader>vrc :e ~/.vimrc<CR>
+nnoremap <leader>ç :source %<CR>
 " -------------END CUSTOMIZATION-------------
 
 
