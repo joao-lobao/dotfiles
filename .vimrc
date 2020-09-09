@@ -143,7 +143,7 @@ inoremap <Right> <Nop>
 
 " checks if a lexplore window is open and toggles Lexplore on the correct
 " directory
-nnoremap <expr> <leader>e exists("t:netrw_lexbufnr") ? ':Lexplore<CR>' : ':Lexplore %:p:h<CR>'
+nnoremap <leader>e :Explore<CR>
 
 let g:netrw_preview   = 1
 " let g:netrw_liststyle = 3
