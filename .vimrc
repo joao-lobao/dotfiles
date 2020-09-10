@@ -120,11 +120,6 @@ nnoremap <leader>bD :bd!<CR>
 xmap <leader>p  <Plug>(coc-format)
 nmap <leader>p  <Plug>(coc-format)
 
-" Specific custom macros and mappings
-let @k=":!tmux kill-session -t"
-let @p="gg/sba-sba-retail-app\<CR>:nohl\<CR>3kdgg%jdG==:%s/preferences/properties\<CR>ggjddggyG"
-let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
-
 " shift lines up and down in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -139,11 +134,22 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Netrw settings to preview file on right window
-
-" checks if a lexplore window is open and toggles Lexplore on the correct
-" directory
+" open Netrw explorer
 nnoremap <leader>e :Explore<CR>
+
+" Startify commands
+nnoremap <leader>sl :SLoad current<CR>
+nnoremap <leader>ss :SSave current<CR>
+nnoremap <leader>sd :SDelete current<CR>
+
+" Snippets
+nnoremap <leader>cl oconsole.log()<Esc>i
+inoremap <leader>cl <Esc>Sconsole.log()<Esc>i
+nnoremap <leader>vrc :e ~/.vimrc<CR>
+nnoremap <leader>ç :source %<CR>
+" Specific custom macros and mappings
+let @k=":!tmux kill-session -t"
+let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
 
 let g:netrw_preview   = 1
 " let g:netrw_liststyle = 3
@@ -196,10 +202,6 @@ augroup END
 let &t_TI = ""
 let &t_TE = ""
 
-" Snippets
-nnoremap <leader>cl Sconsole.log()<Esc>i
-nnoremap <leader>vrc :e ~/.vimrc<CR>
-nnoremap <leader>ç :source %<CR>
 " -------------END CUSTOMIZATION-------------
 
 
