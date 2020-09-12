@@ -144,7 +144,6 @@ nnoremap <leader>sd :SDelete current<CR>
 
 " Snippets
 nnoremap <leader>cl oconsole.log()<Esc>i
-inoremap <leader>cl <Esc>Sconsole.log()<Esc>i
 nnoremap <leader>vrc :e ~/.vimrc<CR>
 nnoremap <leader>ç :source %<CR>
 " Specific custom macros and mappings
