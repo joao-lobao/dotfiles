@@ -1,0 +1,7 @@
+{
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "html.autoClosingTags": true,
+  "explorer.quitOnOpen": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true
+}
