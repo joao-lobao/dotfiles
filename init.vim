@@ -152,10 +152,11 @@ tnoremap <leader>bp <c-\><c-n><c-w>:bp<CR>
 " Snippets
 nnoremap <leader>cl oconsole.log()<Esc>i
 nnoremap <leader>vrc :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ve :e ~/Desktop/vim-explore<CR>
 nnoremap <leader>ç :source %<CR>
 " Lazygit
 " requires lazygit installation on the OS
-nnoremap <leader>L :terminal<CR>ilazygit<CR>
+nnoremap <leader>L :term lazygit<CR>
 " Specific custom macros and mappings
 let @k=":!tmux kill-session -t"
 let @t="gg/test.ts\<CR>:nohl\<CR>ci\"libs//test.ts\<Esc>4ba"
