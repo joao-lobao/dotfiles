@@ -32,6 +32,8 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " fancy startup plugin
 Plugin 'mhinz/vim-startify'
+" to highlight matches of the word under the cursor
+Plugin 'osyo-manga/vim-brightest'
 call vundle#end()
 filetype plugin indent on
 
