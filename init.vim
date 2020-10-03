@@ -32,8 +32,6 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " fancy startup plugin
 Plugin 'mhinz/vim-startify'
-" to highlight matches of the word under the cursor
-Plugin 'osyo-manga/vim-brightest'
 call vundle#end()
 filetype plugin indent on
 
@@ -193,6 +191,7 @@ set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
+set cul " highlights the line where currently is the cursor
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 call matchadd('ExtraWhitespace', '\s\+$', 11)
