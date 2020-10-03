@@ -32,6 +32,10 @@ Plugin 'airblade/vim-rooter'
 Plugin 'neoclide/coc.nvim'
 " fancy startup plugin
 Plugin 'mhinz/vim-startify'
+" use motions like vimium
+Plugin 'easymotion/vim-easymotion'
+" repeat commands from other plugins that are not atomic to vim
+Plugin 'tpope/vim-repeat'
 call vundle#end()
 filetype plugin indent on
 
