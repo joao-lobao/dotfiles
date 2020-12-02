@@ -1,42 +1,35 @@
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 " plugins for statusline/tabline
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " plugin for auto pairs feature
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 " plugin for surrounding feature
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " plugin commentary feature
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
+" repeat commands from other plugins that are not atomic to vim
+Plug 'tpope/vim-repeat'
 " plugin to match corresponding closing brackets, parenthisis, tags...
-Plugin 'tmhedberg/matchit'
+Plug 'tmhedberg/matchit'
 " color highlighter
-Plugin 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 " plugin for git integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " gruvbox colorscheme
-Plugin 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 " fuzzy file and text search
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Rooter changes the working directory to the project root when you open a file or directory.
-Plugin 'airblade/vim-rooter'
+Plug 'airblade/vim-rooter'
 " plugin for intelisense for multiple languages; has own extensions for
 " multiple languages/features
-Plugin 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fancy startup plugin
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 " use motions like vimium
-Plugin 'easymotion/vim-easymotion'
-" repeat commands from other plugins that are not atomic to vim
-Plugin 'tpope/vim-repeat'
-call vundle#end()
+Plug 'easymotion/vim-easymotion'
+call plug#end()
 filetype plugin indent on
 
 
@@ -44,16 +37,16 @@ filetype plugin indent on
 " -------------BEGIN CUSTOMIZATION-------------
 
 let g:coc_global_extensions = [
-\ 'coc-yank',
-\ 'coc-tsserver',
-\ 'coc-tslint-plugin',
-\ 'coc-prettier',
-\ 'coc-json',
-\ 'coc-html',
-\ 'coc-eslint',
-\ 'coc-css',
-\ 'coc-angular'
-\ ]
+      \ 'coc-yank',
+      \ 'coc-tsserver',
+      \ 'coc-tslint-plugin',
+      \ 'coc-prettier',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-eslint',
+      \ 'coc-css',
+      \ 'coc-angular'
+      \ ]
 
 colorscheme gruvbox
 set background=dark
@@ -139,6 +132,7 @@ inoremap <Right> <Nop>
 nnoremap <leader>e :Explore<CR>
 
 " Startify commands
+nnoremap <leader>S :Startify<CR>
 nnoremap <leader>sl :SLoad current<CR>
 nnoremap <leader>ss :SSave current<CR>
 nnoremap <leader>sd :SDelete current<CR>
@@ -359,4 +353,3 @@ augroup mygroup
 augroup end
 
 " -------------END COC CONFIGURATIONS-------------
-
