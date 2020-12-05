@@ -1,3 +1,5 @@
+alias remoteadd="git remote add origin"
+alias remoteset="git remote set-url origin"
 alias push="git push origin"
 alias pull="git pull origin"
 alias merge="git merge origin"
@@ -8,8 +10,15 @@ alias add="git add"
 alias com="git commit -m"
 alias co="git checkout"
 alias status="git status"
-alias vrc="vim ~/.vimrc"
-alias src="source ~/.vimrc"
+alias ados="cd ~/Desktop/ados-wc3/sba-project"
+alias vrc="nvim ~/.config/nvim/init.vim"
+alias cpvim="cp ~/.zshrc ~/Desktop/dotfiles/.zshrc && cp ~/.config/nvim/init.vim ~/Desktop/dotfiles/init.vim && cp ~/.config/nvim/coc-settings.json ~/Desktop/dotfiles/coc-settings.json"
+alias dotfiles="cd ~/Desktop/dotfiles"
+alias snippets="cd ~/.vim/UltiSnips"
+alias tks="tmux kill-session -t"
+alias tka="tmux kill-session -a"
+alias maps="telnet mapscii.me"
+alias forecast="curl http://wttr.in/"
 
 # get current branch in git repo
 function parse_git_branch() {
