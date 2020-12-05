@@ -353,3 +353,7 @@ augroup mygroup
 augroup end
 
 " -------------END COC CONFIGURATIONS-------------
+
+" Syncs syntax highlighting for this filetypes, preventing broken syntax highlighting
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
