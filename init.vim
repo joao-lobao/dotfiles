@@ -191,8 +191,6 @@ set undodir=~/.vim/undodir
 set undofile
 set cul " highlights the line where currently is the cursor
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-call matchadd('ExtraWhitespace', '\s\+$', 11)
 highlight OverLength ctermbg=red guibg=red
 call matchadd('OverLength', '\%<80v.\%>79v')" to highlight char as red in 79 column
 
