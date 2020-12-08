@@ -71,7 +71,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -122,3 +121,5 @@ alias tka="tmux kill-session -a"
 alias maps="telnet mapscii.me"
 alias forecast="curl http://wttr.in/"
 
+# makes the user@computer (context) disappear from the PROMPT
+prompt_context(){}
