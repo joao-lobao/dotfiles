@@ -29,6 +29,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
 " use motions like vimium
 Plug 'easymotion/vim-easymotion'
+" syntaxt highlighting for tsx
+Plug 'ianks/vim-tsx'
+
 call plug#end()
 filetype plugin indent on
 
