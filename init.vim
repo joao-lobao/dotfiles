@@ -15,20 +15,10 @@ Plug 'tmhedberg/matchit'
 Plug 'ap/vim-css-color'
 " plugin for git integration
 Plug 'tpope/vim-fugitive'
-
-
-
-""""""""""""""
+" improve syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " gruvbox colorscheme
 Plug 'gruvbox-community/gruvbox'
-" these 2 plugins maybe needed for correct syntax highlighting with ecmascript
-"new features, needs more testing
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim'
-""""""""""""""
-
-
-
 " fuzzy file and text search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -48,9 +38,18 @@ Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 filetype plugin indent on
 
-
-
 " -------------BEGIN CUSTOMIZATION-------------
+
+" config for treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 let g:coc_global_extensions = [
       \ 'coc-yank',
