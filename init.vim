@@ -15,8 +15,20 @@ Plug 'tmhedberg/matchit'
 Plug 'ap/vim-css-color'
 " plugin for git integration
 Plug 'tpope/vim-fugitive'
+
+
+
+""""""""""""""
 " gruvbox colorscheme
 Plug 'gruvbox-community/gruvbox'
+" these 2 plugins maybe needed for correct syntax highlighting with ecmascript
+"new features, needs more testing
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+""""""""""""""
+
+
+
 " fuzzy file and text search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
