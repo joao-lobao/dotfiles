@@ -32,6 +32,7 @@ Plug 'easymotion/vim-easymotion'
 " syntaxt highlighting for tsx
 Plug 'ianks/vim-tsx'
 
+Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 filetype plugin indent on
 
