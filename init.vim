@@ -189,7 +189,8 @@ set relativenumber
 set nowrap
 set path+=**
 set wildmenu
-set clipboard=unnamedplus
+" on neovim 0.5 onwards need to install xclip (sudo apt-get install xclip)
+set clipboard+=unnamedplus
 set foldmethod=indent
 set foldlevelstart=99
 " The width of a TAB is set to 2.
