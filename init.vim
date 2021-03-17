@@ -182,7 +182,8 @@ set incsearch
 set hlsearch
 set shortmess-=S
 set belloff=all
-set ignorecase
+set ignorecase " search case insensitive
+set smartcase " search case sensitive if capital letters present
 set ruler
 set number
 set relativenumber
