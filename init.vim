@@ -37,6 +37,8 @@ Plug 'ianks/vim-tsx'
 Plug 'dbeniamine/cheat.sh-vim'
 " easily run tests
 Plug 'janko/vim-test'
+" for multiple cursors
+Plug 'mg979/vim-visual-multi'
 call plug#end()
 filetype plugin indent on
 
