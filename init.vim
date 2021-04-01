@@ -35,6 +35,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ianks/vim-tsx'
 
 Plug 'dbeniamine/cheat.sh-vim'
+" easily run tests
+Plug 'janko/vim-test'
 call plug#end()
 filetype plugin indent on
 
@@ -109,6 +111,14 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>dp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>dn <Plug>(coc-diagnostic-next)
 nnoremap <leader>f :CocFix<CR>
+
+" janko/vim-test
+nnoremap <silent> tt :TestNearest<CR>
+nnoremap <silent> tf :TestFile<CR>
+nnoremap <silent> ts :TestSuite<CR>
+nnoremap <silent> t$ :TestLast<CR>
+let test#strategy = "neovim"
+let test#neovim#term_position = "vertical"
 
 " Vim Fugitive
 nnoremap <leader>gs :G<CR>
