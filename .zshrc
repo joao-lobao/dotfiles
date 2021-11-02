@@ -128,4 +128,3 @@ bindkey -v
 
 # makes the user@computer (context) disappear from the PROMPT
 prompt_context(){}
-neofetch
