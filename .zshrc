@@ -133,7 +133,7 @@ alias maps="telnet mapscii.me"
 alias forecast="curl http://wttr.in/"
 alias start-crypto-watcher="cd ~/Desktop/coding/crypto-watcher && npm start"
 alias clock="tmux clock-mode"
-alias matrix="cmatrix -Bu 10"
+alias m="cmatrix -Bsu 30"
 bindkey -v 
 
 # makes the user@computer (context) disappear from the PROMPT
