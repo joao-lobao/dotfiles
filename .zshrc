@@ -134,6 +134,8 @@ alias forecast="curl http://wttr.in/"
 alias start-crypto-watcher="cd ~/Desktop/coding/crypto-watcher && npm start"
 alias clock="tmux clock-mode"
 alias m="cmatrix -Bsu 30"
+alias specs="neofetch"
+alias off="shutdown now"
 bindkey -v 
 
 # makes the user@computer (context) disappear from the PROMPT
