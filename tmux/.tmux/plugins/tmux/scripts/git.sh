@@ -113,7 +113,7 @@ getMessage()
 {
     if [ $(checkForGitDir) == "true" ]; then
         commit="$(git -C ${path} log | sed -n '5p' | sed -e 's/^[ \t]*//')"
-        commit="#[fg=black]#[bg=#bd93f9] ${commit:0:50}"
+        commit="#[fg=black,bold] ${commit:0:50}#[fg=black,nobold]"
 
         branch="$(getBranch)"
         
