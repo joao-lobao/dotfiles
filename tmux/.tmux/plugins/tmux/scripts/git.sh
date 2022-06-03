@@ -112,6 +112,9 @@ getBranch()
 getMessage()
 {
     if [ $(checkForGitDir) == "true" ]; then
+        commit="$(git -C ${path} log | sed -n '5p' | sed -e 's/^[ \t]*//')"
+        commit="#[fg=black]#[bg=#bd93f9] ${commit:0:50}"
+
         branch="$(getBranch)"
         
         if [ $(checkForChanges) == "true" ]; then 
@@ -120,27 +123,27 @@ getMessage()
             
             if [ "${hide_status}" == "false" ]; then
                 if [ $(checkEmptySymbol $diff_symbol) == "true" ]; then
-                    echo "${changes} $branch"                    
+                    echo "${changes} $branch $commit"                    
                 else
-                    echo "$diff_symbol ${changes} $branch"
+                    echo "$diff_symbol ${changes} $branch $commit"
                 fi
             else
                 if [ $(checkEmptySymbol $diff_symbol) == "true" ]; then
-                    echo "$branch"
+                    echo "$branch $commit"
                 else
-                    echo "$diff_symbol $branch"                    
+                    echo "$diff_symbol $branch $commit"                    
                 fi
             fi
 
         else
             if [ $(checkEmptySymbol $current_symbol) == "true" ]; then
-                echo "$branch"
+                echo "$branch $commit"
             else
-                echo "$current_symbol $branch"
+                echo "$current_symbol $branch $commit"
             fi
         fi
     else
-        echo $no_repo_message
+        echo "NO GIT REPO"
     fi
 }
 
