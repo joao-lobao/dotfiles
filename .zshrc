@@ -140,6 +140,17 @@ alias specs="neofetch"
 alias off="shutdown now"
 bindkey -v 
 
+function kill-port-pid()
+{
+  port=$1
+  pid=$(lsof -i :$port | sed -n 2p | sed -e 's/^ *[^ ]* *\([^ ]*\) .*/\1/')
+  if [ -n "$pid" ] && [ -n "$port" ]
+  then
+    kill $pid
+    echo PID: $pid killed on port $port
+  fi
+}
+
 # makes the user@computer (context) disappear from the PROMPT
 # prompt_context(){}
 
