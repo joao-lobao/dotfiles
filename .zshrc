@@ -12,6 +12,7 @@ export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/home/.oh-my-zsh"
+export EDITOR="nvim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -138,6 +139,7 @@ alias m="cmatrix -Bsu 30"
 alias mc="cmatrix -Bru 10"
 alias specs="neofetch"
 alias off="shutdown now"
+alias mux="tmuxinator"
 bindkey -v 
 
 function kill-port-pid()
