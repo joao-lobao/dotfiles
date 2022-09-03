@@ -140,6 +140,9 @@ alias mc="cmatrix -Bru 10"
 alias specs="neofetch"
 alias off="shutdown now"
 alias mux="tmuxinator"
+alias mon="mux start"
+alias moff="mux stop"
+alias med="mux edit"
 bindkey -v 
 
 function kill-port-pid()
