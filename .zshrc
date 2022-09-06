@@ -129,20 +129,22 @@ alias notes="cd ~/Desktop/coding/notes"
 alias coding="cd ~/Desktop/coding"
 alias crypto-watcher="cd ~/Desktop/coding/crypto-watcher"
 alias vimconfig="cd ~/.config/nvim"
+# kill given tmux session
 alias tks="tmux kill-session -t"
+# kill all sessions but not the current one
 alias tka="tmux kill-session -a"
 alias maps="telnet mapscii.me"
 alias forecast="curl http://wttr.in/"
 alias start-crypto-watcher="cd ~/Desktop/coding/crypto-watcher && npm start"
 alias clock="tmux clock-mode"
-alias m="cmatrix -Bsu 30"
-alias mc="cmatrix -Bru 10"
+alias m="cmatrix -bu 10"
 alias specs="neofetch"
 alias off="shutdown now"
 alias mux="tmuxinator"
 alias mon="mux start"
 alias moff="mux stop"
 alias med="mux edit"
+alias mk="tmux kill-server"
 bindkey -v 
 
 function kill-port-pid()
