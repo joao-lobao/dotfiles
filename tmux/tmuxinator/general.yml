@@ -1,0 +1,15 @@
+# /home/home/.config/tmuxinator/general.yml
+
+name: GENERAL
+root: ~/
+
+startup_window: UTILS
+startup_pane: 2
+windows:
+  - UTILS:
+      layout: tiled
+      panes: 
+        - med general
+        - newsboat
+        - m
+        - nvim

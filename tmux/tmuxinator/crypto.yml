@@ -1,0 +1,11 @@
+# /home/home/.config/tmuxinator/crypto.yml
+
+name: CRYPTO
+root: ~/Desktop/coding/crypto-watcher
+
+windows:
+  - CRYPTO:
+      layout: even-horizontal
+      panes:
+        - clear && nvim -S ~/.config/nvim/session/Crypto\ Watcher
+        - clear

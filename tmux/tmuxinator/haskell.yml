@@ -1,0 +1,11 @@
+# /home/home/.config/tmuxinator/haskell.yml
+
+name: HASKELL
+root: ~/Desktop/coding/hskl
+
+windows:
+  - CODE:
+      layout: even-horizontal
+      panes: 
+        - nvim ./src/Main.hs
+        - clear

@@ -1,0 +1,11 @@
+# /home/home/.config/tmuxinator/notes.yml
+
+name: NOTES
+root: ~/Desktop/coding/notes
+
+windows:
+  - NOTES: 
+      layout: main-vertical
+      panes: 
+        - notes && clear && nvim -S ~/.config/nvim/session/Notes
+        - clear

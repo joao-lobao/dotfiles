@@ -1,0 +1,16 @@
+# /home/home/.config/tmuxinator/tplink.yml
+
+name: TPLINK
+root: ~/Desktop/coding/
+
+windows:
+  - CMD:
+      layout: even-horizontal
+      panes:
+        - cd ~/Desktop/coding/tplink-api && clear
+        - cd ~/Desktop/coding/tplink-api-express/ && clear
+  - TPLINK:
+      layout: even-horizontal
+      panes: 
+        - clear && nvim ~/Desktop/coding/tplink-api/index.ts
+        - clear && nvim ~/Desktop/coding/tplink-api-express/index.js
