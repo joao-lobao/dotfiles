@@ -5,12 +5,12 @@ root: ~/Desktop/coding/
 
 windows:
   - CMD:
-      layout: even-horizontal
+      layout: even-vertical
       panes:
         - cd ~/Desktop/coding/tplink-api && clear
         - cd ~/Desktop/coding/tplink-api-express/ && clear
   - TPLINK:
-      layout: even-horizontal
+      layout: even-vertical
       panes: 
         - clear && nvim ~/Desktop/coding/tplink-api/index.ts
         - clear && nvim ~/Desktop/coding/tplink-api-express/index.js

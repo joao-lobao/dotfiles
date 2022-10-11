@@ -4,8 +4,8 @@ name: NOTES
 root: ~/Desktop/coding/notes
 
 windows:
-  - NOTES: 
-      layout: main-vertical
-      panes: 
+  - notes:
+      layout: even-horizontal
+      panes:
         - notes && clear && nvim -S ~/.config/nvim/session/Notes
         - clear

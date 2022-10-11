@@ -11,5 +11,5 @@ windows:
       panes: 
         - med general
         - newsboat
-        - m
+        - cmatrix -bu 10
         - nvim
