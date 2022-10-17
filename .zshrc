@@ -145,6 +145,8 @@ alias mon="mux start"
 alias moff="mux stop"
 alias med="mux edit"
 alias mk="tmux kill-server"
+alias v="nvim"
+
 bindkey -v 
 
 function kill-port-pid()
