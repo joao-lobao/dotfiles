@@ -77,7 +77,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git web-search)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -146,6 +146,7 @@ alias moff="mux stop"
 alias med="mux edit"
 alias mk="tmux kill-server"
 alias v="nvim"
+alias rn="ranger"
 
 bindkey -v 
 
