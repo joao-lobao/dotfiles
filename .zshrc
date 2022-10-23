@@ -168,4 +168,6 @@ function kill-port-pid()
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
 
-[ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
+# uncomment when installing ghcup-env for Haskell
+# [ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
+
