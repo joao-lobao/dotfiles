@@ -4,12 +4,10 @@ name: GENERAL
 root: ~/
 
 startup_window: UTILS
-startup_pane: 2
+startup_pane: 1
 windows:
   - UTILS:
-      layout: tiled
+      layout: even-horizontal
       panes: 
-        - med general
-        - newsboat
-        - cmatrix -bu 10
         - nvim
+        - cmatrix -bu 10
