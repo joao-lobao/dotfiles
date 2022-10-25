@@ -171,3 +171,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # uncomment when installing ghcup-env for Haskell
 # [ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
