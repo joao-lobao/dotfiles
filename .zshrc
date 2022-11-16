@@ -147,6 +147,7 @@ alias med="mux edit"
 alias mk="tmux kill-server"
 alias v="nvim"
 alias rn="ranger"
+alias test-vim="~/Desktop/dotfiles/nvim-startup-test.sh"
 
 bindkey -v 
 
