@@ -1,0 +1,12 @@
+# /home/home/.config/tmuxinator/joaolobao.yml
+
+name: JOAOLOBAO
+root: ~/Desktop/jl-app/
+
+windows:
+  - JOAOLOBAO:
+      layout: even-horizontal
+      panes: 
+        - clear && nvim -S ~/.config/nvim/session/JoaoLobao
+        - clear
+
