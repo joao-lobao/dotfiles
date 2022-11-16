@@ -1,5 +1,6 @@
 #!/bin/bash
 
-nvim --startuptime ~/Desktop/test
-tail ~/Desktop/test
-rm ~/Desktop/test
+TEST_FILE=~/.config/nvim/test
+nvim --startuptime $TEST_FILE
+tail $TEST_FILE
+rm $TEST_FILE
