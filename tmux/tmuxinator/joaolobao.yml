@@ -9,4 +9,3 @@ windows:
       panes: 
         - clear && nvim -S ~/.config/nvim/session/JoaoLobao
         - clear
-
