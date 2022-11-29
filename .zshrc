@@ -129,6 +129,7 @@ alias notes="cd ~/Desktop/coding/notes"
 alias coding="cd ~/Desktop/coding"
 alias crypto-watcher="cd ~/Desktop/coding/crypto-watcher"
 alias vimconfig="cd ~/.config/nvim"
+alias joaolobao="cd ~/Desktop/coding/jl-app"
 # kill given tmux session
 alias tks="tmux kill-session -t"
 # kill all sessions but not the current one
