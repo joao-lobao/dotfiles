@@ -148,20 +148,8 @@ alias mk="tmux kill-server"
 alias v="nvim"
 alias vim="nvim"
 alias rn="ranger"
-alias test-vim="~/Desktop/dotfiles/scripts/nvim-startup-test.sh"
 
 bindkey -v 
-
-function kill-port-pid()
-{
-  port=$1
-  pid=$(lsof -i :$port | sed -n 2p | sed -e 's/^ *[^ ]* *\([^ ]*\) .*/\1/')
-  if [ -n "$pid" ] && [ -n "$port" ]
-  then
-    kill $pid
-    echo PID: $pid killed on port $port
-  fi
-}
 
 # makes the user@computer (context) disappear from the PROMPT
 # prompt_context(){}
@@ -177,3 +165,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+source ~/scripts/general.sh
+source ~/scripts/backup.sh
