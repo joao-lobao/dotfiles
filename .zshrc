@@ -122,7 +122,6 @@ alias com="git commit -m"
 alias co="git checkout"
 alias status="git status"
 alias st="git status"
-alias cpconfig="cp ~/.zshrc ~/Desktop/dotfiles/.zshrc && cp ~/.tmux.conf ~/Desktop/dotfiles/tmux/ && cp -r ~/.tmux/plugins/tmux/scripts ~/Desktop/dotfiles/tmux/.tmux/plugins/tmux && cp /usr/local/share/zsh/site-functions/_tmuxinator ~/Desktop/dotfiles/tmux/_tmuxinator && cp -r ~/.config/tmuxinator ~/Desktop/dotfiles/tmux && cp -r ~/.newsboat ~/Desktop/dotfiles/.newsboat"
 alias dotfiles="cd ~/Desktop/dotfiles"
 alias notes="cd ~/Desktop/coding/notes"
 alias coding="cd ~/Desktop/coding"
@@ -165,5 +164,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
-source ~/scripts/general.sh
-source ~/scripts/backup.sh
+# load custom scripts
+source ~/scripts/index.sh
