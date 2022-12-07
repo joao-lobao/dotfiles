@@ -1,0 +1,12 @@
+# /home/home/.config/tmuxinator/advent-of-code.yml
+
+name: ADVENT-OF-CODE
+root: ~/Desktop/coding/advent-of-code/
+
+windows:
+  - ADVENT-OF-CODE:
+      layout: even-horizontal
+      panes: 
+        - clear && nvim -S ~/.config/nvim/session/Advent-of-code
+        - clear
+

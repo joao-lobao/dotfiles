@@ -1,7 +1,7 @@
 # /home/home/.config/tmuxinator/joaolobao.yml
 
 name: JOAOLOBAO
-root: ~/Desktop/jl-app/
+root: ~/Desktop/coding/jl-app/
 
 windows:
   - JOAOLOBAO:
