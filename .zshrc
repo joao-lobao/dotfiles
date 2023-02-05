@@ -148,6 +148,7 @@ alias mk="tmux kill-server"
 alias v="nvim"
 alias vim="nvim"
 alias rn="ranger"
+alias ips="ip -c -br a"
 
 bindkey -v 
 
