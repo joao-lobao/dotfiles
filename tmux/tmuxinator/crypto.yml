@@ -1,7 +1,7 @@
 # /home/home/.config/tmuxinator/crypto.yml
 
 name: CRYPTO
-root: ~/Desktop/coding/crypto-watcher
+root: ~/Documents/coding/crypto-watcher
 
 windows:
   - CRYPTO:
