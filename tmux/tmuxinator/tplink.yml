@@ -1,16 +1,16 @@
 # /home/home/.config/tmuxinator/tplink.yml
 
 name: TPLINK
-root: ~/Documents/coding/
+root: /media/home/SSD_BACKUP/coding/
 
 windows:
   - CMD:
       layout: even-horizontal
       panes:
-        - cd ~/Documents/coding/tplink-api && clear
-        - cd ~/Documents/coding/tplink-api-express/ && clear
+        - cd /media/home/SSD_BACKUP/coding/tplink-api && clear
+        - cd /media/home/SSD_BACKUP/coding/tplink-api-express/ && clear
   - TPLINK:
       layout: even-horizontal
       panes: 
-        - clear && nvim ~/Documents/coding/tplink-api/index.ts
-        - clear && nvim ~/Documents/coding/tplink-api-express/index.js
+        - clear && nvim /media/home/SSD_BACKUP/coding/tplink-api/index.ts
+        - clear && nvim /media/home/SSD_BACKUP/coding/tplink-api-express/index.js

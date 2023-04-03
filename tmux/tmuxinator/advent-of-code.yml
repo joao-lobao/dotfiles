@@ -1,7 +1,7 @@
 # /home/home/.config/tmuxinator/advent-of-code.yml
 
 name: ADVENT-OF-CODE
-root: ~/Documents/coding/advent-of-code/2022/
+root: /media/home/SSD_BACKUP/coding/advent-of-code/2022/
 
 windows:
   - ADVENT-OF-CODE:

@@ -1,7 +1,7 @@
 # /home/home/.config/tmuxinator/notes.yml
 
 name: NOTES
-root: ~/Documents/coding/notes
+root: /media/home/SSD_BACKUP/coding/notes
 
 windows:
   - notes:

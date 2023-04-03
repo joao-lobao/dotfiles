@@ -1,7 +1,7 @@
 # /home/home/.config/tmuxinator/haskell.yml
 
 name: HASKELL
-root: ~/Documents/coding/hskl
+root: /media/home/SSD_BACKUP/coding/hskl
 
 windows:
   - CODE:
