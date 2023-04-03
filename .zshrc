@@ -164,9 +164,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # uncomment when installing ghcup-env for Haskell
 # [ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
 
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 # load custom scripts
 source ~/scripts/index.sh
+
+# automatically added by nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
