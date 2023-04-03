@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #paths
-DOTFILES=/media/home/SSD_BACKUP/dotfiles/
+DOTFILES="${BACKUP_PATH}/dotfiles/"
 TMUX_HOME_BACKUP="${DOTFILES}tmux/"
 TMUX_PLUGINS_BACKUP="${TMUX_HOME_BACKUP}.tmux/plugins/tmux"
 ZSH_SOURCE=~/.zshrc
