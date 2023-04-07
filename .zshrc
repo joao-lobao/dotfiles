@@ -167,6 +167,17 @@ export PATH="$HOME/.local/bin:$PATH"
 # load custom scripts
 source ~/scripts/index.sh
 
+# add yank from cmdline to clipboard
+function vi-yank-x-selection () { 
+  zle vi-yank
+  # $CUTBUFFER is created by xclip with the yanked text but has a trailing newline
+  # xclip -rmlastnl removes the trailing newline
+  # xclip -selection c copies to the clipboard
+  echo "$CUTBUFFER" | xclip -selection c -rmlastnl
+}
+zle -N vi-yank-x-selection
+bindkey -M vicmd 'y' vi-yank-x-selection
+
 # automatically added by nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
