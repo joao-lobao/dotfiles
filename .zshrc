@@ -109,7 +109,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # source /usr/share/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export BACKUP_PATH="/media/home/SSD_BACKUP"
+export BACKUP_DIR="SSD_BACKUP"
+export BACKUP_PATH="/media/home/${BACKUP_DIR}"
 alias remoteadd="git remote add origin"
 alias remoteset="git remote set-url origin"
 alias push="git push origin"
@@ -151,6 +152,10 @@ alias v="nvim"
 alias vim="nvim"
 alias rn="ranger"
 alias ips="ip -c -br a"
+alias decrypt="sudo cryptsetup open /dev/nvme1n1 ${BACKUP_DIR}"
+alias mnt="sudo mount /dev/mapper/SSD_BACKUP ${BACKUP_PATH}"
+alias umnt="sudo umount /media/home/SSD_BACKUP"
+alias encrypt="sudo cryptsetup close ${BACKUP_DIR}"
 
 bindkey -v 
 
