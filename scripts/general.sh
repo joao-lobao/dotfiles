@@ -23,7 +23,7 @@ function say() {
 
 function pom_chunk() {
 	say $1 "Initiating $2"
-	timer $3
+	sleep $3
 	say $1 "$2 completed"
 	sleep 2
 }
