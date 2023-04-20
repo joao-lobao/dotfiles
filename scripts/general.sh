@@ -32,9 +32,9 @@ function pom() {
 	RED="#f14e32"
 	PINK="#eb6ce8"
 	BLUE="#007cba"
-	work_time="2s"
-	long_break="2s"
-	short_break="2s"
+	work_time="25m"
+	short_break="5m"
+	long_break="15m"
 	cycles=4
 	for ((j = 1; j <= $cycles; j++)); do
 		pom_chunk $PINK "working session $j" $work_time
