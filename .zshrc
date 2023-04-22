@@ -152,10 +152,10 @@ alias v="nvim"
 alias vim="nvim"
 alias rn="ranger"
 alias ips="ip -c -br a"
-alias decrypt="sudo cryptsetup open /dev/nvme1n1 ${BACKUP_DIR}"
-alias mnt="sudo mount /dev/mapper/SSD_BACKUP ${BACKUP_PATH}"
-alias umnt="sudo umount /media/home/SSD_BACKUP"
-alias encrypt="sudo cryptsetup close ${BACKUP_DIR}"
+alias opendisk="sudo cryptsetup open /dev/nvme1n1 ${BACKUP_DIR} && sudo mount /dev/mapper/SSD_BACKUP ${BACKUP_PATH} && cd ${BACKUP_PATH}"
+alias closedisk="cd ~ && sudo umount /media/home/SSD_BACKUP && sudo cryptsetup close ${BACKUP_DIR}"
+alias o="opendisk"
+alias c="closedisk"
 
 bindkey -v 
 
