@@ -36,12 +36,6 @@ declare -A sources_dirs=(
 	[$TMUX_PLUGINS_SOURCE]=$TMUX_PLUGINS_SOURCE
 )
 
-function color_text() {
-	color=$1
-	text=$2
-	gum style --foreground "$color" "$text"
-}
-
 function backup_file_or_directory() {
 	if [ -d "$sources_dirs[$1]" ]; then
 		cp -rv $sources_dirs[$1] $backup_dirs[$1]
