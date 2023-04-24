@@ -77,7 +77,10 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git web-search)
+plugins=(
+  git web-search
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -158,6 +161,8 @@ alias o="opendisk"
 alias c="closedisk"
 
 bindkey -v 
+# bindkey for autosuggestions plugin
+bindkey '^a' autosuggest-accept
 
 # makes the user@computer (context) disappear from the PROMPT
 # prompt_context(){}
