@@ -159,6 +159,8 @@ alias opendisk="sudo cryptsetup open /dev/nvme1n1 ${BACKUP_DIR} && sudo mount /d
 alias closedisk="cd ~ && sudo umount /media/home/SSD_BACKUP && sudo cryptsetup close ${BACKUP_DIR}"
 alias o="opendisk"
 alias c="closedisk"
+alias nb="newsboat"
+alias pb="podboat"
 
 bindkey -v 
 # bindkey for autosuggestions plugin
