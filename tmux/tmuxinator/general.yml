@@ -11,7 +11,7 @@ windows:
       layout: d164,173x39,0,0[173x19,0,0{52x19,0,0,0,52x19,53,0,4,67x19,106,0,1},173x19,0,20{105x19,0,20,2,67x19,106,20,3}]
       panes: 
         - clear
-        - podboat
+        - vtop
         - cmatrix -bu 10
         - nvim ~/scripts/index.sh
         - newsboat
