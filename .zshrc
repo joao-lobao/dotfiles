@@ -194,3 +194,10 @@ bindkey -M vicmd 'y' vi-yank-x-selection
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# config for shell-genie completion
+source ~/.open_api_key.sh
+export OPENAI_API_KEY=$OPENAI_API_KEY
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
