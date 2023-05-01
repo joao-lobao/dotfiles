@@ -198,7 +198,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # config for shell-genie completion
 source ~/.open_api_key.sh
-export OPENAI_API_KEY=$OPENAI_API_KEY
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
