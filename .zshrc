@@ -143,7 +143,7 @@ alias maps="telnet mapscii.me"
 alias forecast="curl http://wttr.in/"
 alias start-crypto-watcher="cd ${BACKUP_PATH}/coding/crypto-watcher && npm start"
 alias clock="tmux clock-mode"
-alias m="cmatrix -bu 10"
+alias m="cmatrix -bu 10 -C red"
 alias specs="neofetch"
 alias off="shutdown now"
 alias mux="tmuxinator"
@@ -161,6 +161,7 @@ alias o="opendisk"
 alias c="closedisk"
 alias nb="newsboat"
 alias pb="podboat"
+alias vtop="vtop --theme wizard"
 
 bindkey -v 
 # bindkey for autosuggestions plugin
