@@ -13,5 +13,5 @@ color listnormal          white   black
 color listfocus           white   red    bold
 color listnormal_unread   yellow  black
 color listfocus_unread    yellow  red    bold
-color info                blue    black  bold
+color info                red    black  bold
 color article             white   black
