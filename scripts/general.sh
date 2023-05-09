@@ -31,7 +31,8 @@ function spinner() {
 	title=$1
 	spinner=$2
 	color=$3
-	gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep 5 && color_text "#ff8888" "$title ✔"
+  # gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#ff8888" "$title ✔"
+  gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#9cda9c" "$title ✔"
 }
 
 function launch() {
@@ -56,5 +57,21 @@ function launch() {
 		done
 	done
 	while true; do
+	done
+}
+
+function random-tech-actions() {
+	words1=("Loading" "Authenticating" "Authorizing" "Deleting" "Reading" "Converting" "Writing" "Launching" "Copying" "Preparing" "Closing" "Replacing" "Connecting" "Encrypting" "Decrypting" "Deploying" "Searching" "Initializing" "Compiling" "Sending" "Waiting")
+	words2=("quantic" "complex" "old" "new" "authorized" "authenticated" "simple" "chosen" "empty" "full" "multi" "redundant" "cloaked")
+	words3=("system" "log" "error" "warning" "report" "bundle" "build" "queue" "signal" "metadata" "layout" "network" "protocol" "database" "cycle" "hardware" "resources" "app" "data" "table" "message")
+	while [[ true ]]; do
+		# get random word from arrays
+		i1=$((1 + $RANDOM % ${#words1[@]}))
+		i2=$((1 + $RANDOM % ${#words2[@]}))
+		i3=$((1 + $RANDOM % ${#words3[@]}))
+		w1=${words1[$i1]}
+		w2=${words2[$i2]}
+		w3=${words3[$i3]}
+		spinner "$w1 $w2 $w3" "moon" "#ffffff"
 	done
 }
