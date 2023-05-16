@@ -8,10 +8,7 @@ download-path "~/Downloads"
 bind-key k prev
 bind-key j next
 
-# color background          white   black
-# color listnormal          white   black
-# color article             white   black
 color listfocus           white   red    bold
-color listnormal_unread   yellow  black
+color listnormal_unread   yellow  default
 color listfocus_unread    yellow  red    bold
-color info                red    black  bold
+color info                red     black  bold
