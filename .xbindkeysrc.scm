@@ -5,10 +5,10 @@
 
 (define actionperformed #false)
 
-;; Left Click
+;; Middle and Right Click
 (define (first-binding)
     "First binding"
-    (xbindkey-function '("b:1") b1-second-binding)
+    (xbindkey-function '("b:2") b2-second-binding)
     (xbindkey-function '("b:3") b3-second-binding)
 )
 
@@ -25,38 +25,8 @@
     (grab-all-keys)
 )
 
-(define (b1-second-binding)
-    "Button Extra Functions"
-    (unset-first-binding)
-    (start-first-binding)
-
-    (xbindkey-function '("b:4")
-        (lambda ()
-            (set! actionperformed #true)
-            (run-command "xdotool key 'semicolon'")
-        )
-    )
-
-    (xbindkey-function '("b:5")
-        (lambda ()
-            (set! actionperformed #true)
-            (run-command "xdotool key 'colon'")
-        )
-    )
-
-    (xbindkey-function '(release "b:1")
-        (lambda ()
-            (if (not actionperformed)
-                (begin
-                    (unset-first-binding)
-                    (run-command "xdotool click 1; xbindkeys --poll-rc")
-                )
-            )
-        )
-    )
-)
-
-(define (b3-second-binding)
+;; Middle Click
+(define (b2-second-binding)
     "Button Extra Functions"
     (unset-first-binding)
     (start-first-binding)
@@ -72,6 +42,38 @@
         (lambda ()
             (set! actionperformed #true)
             (run-command "xdotool key 'Right'")
+        )
+    )
+
+    (xbindkey-function '(release "b:2")
+        (lambda ()
+            (if (not actionperformed)
+                (begin
+                    (unset-first-binding)
+                    (run-command "xdotool click 2; xbindkeys --poll-rc")
+                )
+            )
+        )
+    )
+)
+
+;; Right Click
+(define (b3-second-binding)
+    "Button Extra Functions"
+    (unset-first-binding)
+    (start-first-binding)
+
+    (xbindkey-function '("b:4")
+        (lambda ()
+            (set! actionperformed #true)
+            (run-command "xdotool key 'semicolon'")
+        )
+    )
+
+    (xbindkey-function '("b:5")
+        (lambda ()
+            (set! actionperformed #true)
+            (run-command "xdotool key 'colon'")
         )
     )
 
