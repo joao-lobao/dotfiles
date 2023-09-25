@@ -162,6 +162,7 @@ alias c="closedisk"
 alias nb="newsboat"
 alias pb="podboat"
 alias vtop="vtop --theme wizard"
+alias x="killall xbindkeys; xbindkeys"
 
 bindkey -v 
 # bindkey for autosuggestions plugin

@@ -82,7 +82,7 @@
             (if (not actionperformed)
                 (begin
                     (unset-first-binding)
-                    (run-command "xdotool click 3; xbindkeys --poll-rc")
+                    (run-command "xdotool click 3; killall -HUP xbindkeys")
                 )
             )
         )
