@@ -111,14 +111,14 @@ main()
   tmux set-option -g message-style "bg=${gray},fg=${white}"
 
   # status bar
-  tmux set-option -g status-style "bg=${gray},fg=${white}"
+  tmux set-option -g status-style "bg=${dark_gray},fg=${white}"
 
   # Status left
   if $show_powerline; then
-    tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
+    tmux set-option -g status-left "#[bg=${dark_gray},fg=${dark_purple}]#{?client_prefix,#[bg=${green}],} ${left_icon} #[fg=${dark_purple},bg=${dark_gray}]#{?client_prefix,#[fg=${green}],}${left_sep}"
     powerbg=${gray}
   else
-    tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon}"
+    tmux set-option -g status-left "#[bg=${dark_gray},fg=${dark_purple}]#{?client_prefix,#[bg=${green}],} ${left_icon}"
   fi
 
   # Status right
@@ -127,41 +127,34 @@ main()
   for plugin in "${plugins[@]}"; do
 
     if [ $plugin = "git" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
-        script="#($current_dir/git.sh)"     
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "dark_gray green")
+        script="#($current_dir/git.sh)"
     fi
 
     if [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-battery-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-battery-colors" "dark_gray pink ")
       script="#($current_dir/battery.sh)"
     fi
 
     if [ $plugin = "gpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "dark_gray pink")
       script="#($current_dir/gpu_usage.sh)"
     fi
 
     if [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "dark_gray orange ")
       script="#($current_dir/cpu_info.sh)"
     fi
 
     if [ $plugin = "ram-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "dark_gray dark_purple")
       script="#($current_dir/ram_info.sh)"
     fi
 
     if [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-time-colors" "dark_purple white")
-      if $show_day_month && $show_military ; then # military time and dd/mm
-        script="%a %d/%m %R ${timezone} "
-      elif $show_military; then # only military time
-        script="%a %m/%d %R ${timezone} "
-      elif $show_day_month; then # only dd/mm
-        script="%a %d/%m %I:%M %p ${timezone} "
-      else
-        script="%a %m/%d %I:%M %p ${timezone} "
-      fi
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-time-colors" "dark_gray cyan")
+      # script="%a %m/%d %I:%M %p ${timezone} "
+      script="%a %d/%m %R"
     fi
 
     if $show_powerline; then
@@ -174,12 +167,13 @@ main()
 
   # Window option
   if $show_powerline; then
-    tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W${current_flags} #[fg=${dark_purple},bg=${gray}]${left_sep}"
+    tmux set-window-option -g window-status-current-format "#[fg=${dark_gray},bg=${light_purple}]${left_sep}#[fg=${dark_gray},bg=${light_purple}] #I #W${current_flags} #[fg=${dark_gray},bg=${light_purple}]${left_sep}"
   else
     tmux set-window-option -g window-status-current-format "#[fg=${white},bg=${dark_purple}] #I #W${current_flags} "
+
   fi
 
-  tmux set-window-option -g window-status-format "#[fg=${white}]#[bg=${gray}] #I #W${flags}"
+  tmux set-window-option -g window-status-format "#[fg=${light_purple}]#[bg=${dark_gray}] #I #W${flags} "
   tmux set-window-option -g window-status-activity-style "bold"
   tmux set-window-option -g window-status-bell-style "bold"
 }
