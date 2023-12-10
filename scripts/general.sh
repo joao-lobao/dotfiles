@@ -2,7 +2,7 @@
 
 function vim-test-startup() {
 	TEST_FILE=~/.config/nvim/test
-	nvim --startuptime $TEST_FILE
+	nvim --startuptime $TEST_FILE -c exit
 	tail $TEST_FILE
 	rm $TEST_FILE
 }
