@@ -162,6 +162,7 @@ alias nb="newsboat"
 alias pb="podboat"
 alias vtop="vtop --theme wizard"
 alias x="killall xbindkeys; xbindkeys"
+alias bt="bluetoothctl connect 56:4D:F5:17:00:C9"
 
 bindkey -v 
 # bindkey for autosuggestions plugin
