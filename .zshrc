@@ -78,6 +78,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  colored-man-pages
   git web-search
   zsh-autosuggestions
 )
@@ -163,6 +164,9 @@ alias pb="podboat"
 alias vtop="vtop --theme wizard"
 alias x="killall xbindkeys; xbindkeys"
 alias bt="bluetoothctl connect 56:4D:F5:17:00:C9"
+alias lag="lazygit"
+alias lad="lazydocker"
+alias youtube-dl='python3 /usr/local/bin/youtube-dl'
 
 bindkey -v 
 # bindkey for autosuggestions plugin
