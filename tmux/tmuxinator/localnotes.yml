@@ -1,0 +1,19 @@
+# /home/home/.config/tmuxinator/algocasts.yml
+
+name: LOCALNOTES
+root: ~/Documents/studying/react_course
+
+startup_pane: 0
+windows:
+  - VIM:
+      layout: 4821,173x41,0,0{86x41,0,0,1,86x41,87,0[86x20,87,0,3,86x20,87,21,4]}
+      panes:
+        - nvim ~/Documents/studying/react_course
+        - clear
+        - clear
+  - NOTES:
+      panes:
+        - clear && nvim -S ~/.config/nvim/session/LocalNotes
+  - LAZYDOCKER:
+      panes:
+        - lazydocker
