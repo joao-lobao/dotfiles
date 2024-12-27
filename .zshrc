@@ -177,7 +177,7 @@ bindkey '^a' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # uncomment when installing ghcup-env for Haskell
 # [ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
