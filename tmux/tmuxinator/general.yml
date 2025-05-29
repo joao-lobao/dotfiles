@@ -7,9 +7,8 @@ startup_window: UTILS
 startup_pane: 0
 windows:
   - UTILS:
-      layout: tiled
-      panes: 
-        - clear && tmux clock-mode
-        - vtop
-        - m
+      layout: ee47,173x41,0,0{86x41,0,0[86x20,0,0,0,86x20,0,21,3],86x41,87,0,1}
+      panes:
         - newsboat
+        - clear
+        - btop

@@ -31,8 +31,8 @@ function spinner() {
 	title=$1
 	spinner=$2
 	color=$3
-  # gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#ff8888" "$title ✔"
-  gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#9cda9c" "$title ✔"
+	# gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#ff8888" "$title ✔"
+	gum spin --spinner="$spinner" --title="$title" --title.foreground="$color" sleep $((1 + $RANDOM % 5)) && color_text "#9cda9c" "$title ✔"
 }
 
 function launch() {
