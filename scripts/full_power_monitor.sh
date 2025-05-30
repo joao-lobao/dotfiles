@@ -1,7 +1,31 @@
 #!/bin/bash
 
+get_cpu_mhz() {
+	# Get CPU MHz values from /proc/cpuinfo
+	mhz_values=$(cat /proc/cpuinfo | grep "MHz" | awk -F': ' '{print $2}')
+
+	# Initialize total and count
+	total=0
+	count=0
+
+	# Sum up all MHz values and count them
+	for mhz in $mhz_values; do
+		total=$(echo "$total + $mhz" | bc)
+		count=$((count + 1))
+	done
+
+	# Calculate average
+	if [ $count -gt 0 ]; then
+		average=$(echo "scale=2; $total / $count" | bc)
+		echo "Average CPU MHz: $average"
+	else
+		echo "No CPU MHz data found."
+	fi
+}
+
 # Discover all RAPL domains
-DOMAINS=($(find /sys/class/powercap/intel-rapl:*/ -name "energy_uj"))
+# DOMAINS=($(find /sys/class/powercap/intel-rapl:0/intel-rapl:0*/ -name "energy_uj"))
+DOMAINS=($(find /sys/class/powercap/intel-rapl:0/ -name "energy_uj"))
 
 # Read initial energies and timestamps
 declare -A ENERGY_1
@@ -14,7 +38,6 @@ done
 # Function to read energy and compute power per domain
 get_power() {
 	declare -A POWER
-	TOTAL_POWER=0
 
 	for DOMAIN in "${DOMAINS[@]}"; do
 		NAME=$(cat "$(dirname "$DOMAIN")/name")
@@ -32,9 +55,6 @@ get_power() {
 		# Update previous values
 		ENERGY_1["$DOMAIN"]=$ENERGY_2
 		TIME_1["$DOMAIN"]=$TIME_2
-
-		# Sum total power
-		TOTAL_POWER=$(echo "$TOTAL_POWER + $POWER_NOW" | bc)
 	done
 
 	# Print result
@@ -44,12 +64,11 @@ get_power() {
 		printf "%-10s : %s Watts\n" "$NAME" "${POWER[$NAME]}"
 	done
 	echo "-------------------------------"
-	echo "Total RAPL Power: $TOTAL_POWER Watts"
-	echo "-------------------------------"
 }
 
 # Loop every 2 seconds
 while true; do
 	sleep 2
 	get_power
+	get_cpu_mhz
 done
