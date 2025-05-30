@@ -63,12 +63,23 @@ get_power() {
 	for NAME in "${!POWER[@]}"; do
 		printf "%-10s : %s Watts\n" "$NAME" "${POWER[$NAME]}"
 	done
-	echo "-------------------------------"
+}
+
+quit_handler() {
+	echo "Press 'q' to quit."
+	# Check for 'q' keypress in the background
+	read -t 1 -n 1 key
+	if [[ $key = "q" ]]; then
+		exit 0
+	fi
 }
 
 # Loop every 2 seconds
 while true; do
 	sleep 2
 	get_power
+	echo "-------------------------------"
 	get_cpu_mhz
+	echo "-------------------------------"
+	quit_handler
 done
