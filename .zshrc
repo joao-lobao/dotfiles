@@ -168,7 +168,9 @@ alias lag="lazygit"
 alias lad="lazydocker"
 alias youtube-dl='python3 /usr/local/bin/youtube-dl'
 alias dcd="docker-compose down"
-alias powerstat="sudo ~/scripts/full_power_monitor.sh"
+alias dcu="docker-compose up -d"
+alias dnn="bp && cd DES && dcu && cd frontend && npm run dev"
+alias pst="sudo ~/scripts/full_power_monitor.sh"
 
 bindkey -v 
 # bindkey for autosuggestions plugin
