@@ -167,7 +167,7 @@ alias bt="bluetoothctl connect 56:4D:F5:17:00:C9"
 alias lag="lazygit"
 alias lad="lazydocker"
 alias youtube-dl='python3 /usr/local/bin/youtube-dl'
-alias dcd="docker-compose down"
+alias dcd="docker-compose down -v"
 alias dcu="docker-compose up -d"
 alias dnn="bp && cd DES && dcu && cd frontend && npm run dev"
 alias pst="sudo ~/scripts/full_power_monitor.sh"
@@ -181,7 +181,7 @@ bindkey '^a' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # uncomment when installing ghcup-env for Haskell
 # [ -f "/home/home/.ghcup/env" ] && source "/home/home/.ghcup/env" # ghcup-env
