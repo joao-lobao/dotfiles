@@ -1,0 +1,19 @@
+# /home/home/.config/tmuxinator/matchwatcher.yml
+
+name: matchwatcher
+root: ~/Desktop/matchwatcher
+
+windows:
+  - editor:
+      # layout: main-vertical
+      # layout: even-horizontal
+      layout: 5110,173x41,0,0{105x41,0,0,0,67x41,106,0[67x20,106,0,2,67x20,106,21,3]}
+      panes:
+        - nvim -S ~/.config/nvim/session/MatchWatcher
+        - npm run test
+        - docker compose logs -f backend
+  - docker:
+      layout: even-horizontal
+      panes:
+        - lazydocker
+        - docker-compose up -d
