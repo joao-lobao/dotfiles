@@ -11,9 +11,10 @@ windows:
       panes:
         - nvim -S ~/.config/nvim/session/MatchWatcher
         - npm run test
-        - docker compose logs -f backend
+        - sleep 40 && docker-compose logs -f backend
   - docker:
       layout: even-horizontal
       panes:
         - lazydocker
         - docker-compose up -d
+        - sleep 40 && docker exec -it matchwatcher-backend /bin/sh
