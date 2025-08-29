@@ -2,23 +2,25 @@
 
 function dcwait() {
 	SERVICE=$1
-
-	color_text "#eb6ce8" "⏳ Waiting for service '$SERVICE' to start..."
+	SERVICE_TXT="Waiting for '$SERVICE' service to start..."
+	STATUS_TXT=""
 
 	until docker-compose ps -q "$SERVICE" >/dev/null 2>&1 && [ -n "$(docker-compose ps -q $SERVICE)" ]; do
-		sleep 2
+		gum spin --spinner="dot" --title="$SERVICE_TXT" --title.foreground="#eb6ce8" sleep 2
 	done
+	color_text "#9cda9c" "✅ $SERVICE_TXT"
 
 	CONTAINER=$(docker-compose ps -q "$SERVICE")
 
-	color_text "#eb6ce8" "⏳ Container for service '$SERVICE' found"
+	color_text "#9cda9c" "✅ Container for '$SERVICE' service found..."
 
 	# Step 2: Wait until the container is healthy
 	until [ "$(docker inspect -f '{{.State.Health.Status}}' $CONTAINER 2>/dev/null)" = "healthy" ]; do
 		STATUS=$(docker inspect -f '{{.State.Status}}' $CONTAINER 2>/dev/null)
-		color_text "#eb6ce8" "⏳ $SERVICE $STATUS..."
-		sleep 2
+		STATUS_TXT="The '$SERVICE' service is $STATUS..."
+		gum spin --spinner="dot" --title="$STATUS_TXT" --title.foreground="#eb6ce8" sleep 2
 	done
+	color_text "#9cda9c" "✅ $STATUS_TXT"
 
-	color_text "#05DF72" "✅ Service '$SERVICE' is healthy!"
+	color_text "#05DF72" "✅ Done! The '$SERVICE' service is healthy!"
 }
