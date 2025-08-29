@@ -8,6 +8,7 @@ function dcwait() {
 	until docker-compose ps -q "$SERVICE" >/dev/null 2>&1 && [ -n "$(docker-compose ps -q $SERVICE)" ]; do
 		gum spin --spinner="dot" --title="$SERVICE_TXT" --title.foreground="#eb6ce8" sleep 2
 	done
+
 	color_text "#9cda9c" "✅ $SERVICE_TXT"
 
 	CONTAINER=$(docker-compose ps -q "$SERVICE")
