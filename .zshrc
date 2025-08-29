@@ -80,6 +80,7 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
   colored-man-pages
   git web-search
+  npm
   zsh-autosuggestions
 )
 
